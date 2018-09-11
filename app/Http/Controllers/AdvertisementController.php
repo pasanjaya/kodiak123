@@ -19,8 +19,10 @@ class AdvertisementController extends Controller
         // return Advertisement::where('title', 'Basic Tube Top')->get();
         // $ads = Advertisement::orderBy('updated_at', 'desc')->take(1)->get(); 
         // $ads = Advertisement::orderBy('updated_at', 'desc')->get();
-        $ads = Advertisement::orderBy('updated_at', 'desc')->paginate(1);
-        return view('frontpages.index') -> with('ads', $ads);
+        $ads = Advertisement::orderBy('updated_at', 'desc')->paginate(2);
+        // return($ads);
+        // return view('/frontpages.index') -> with('ads', $ads);
+        return view('/pages.offers') -> with('ads', $ads);
     }
 
     /**
@@ -41,7 +43,28 @@ class AdvertisementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this -> validate($request, [
+            'title' => 'required',
+            'tags' => 'required',
+            'image' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required'
+        ]);
+
+        // create advertisment
+
+        $ad = new Advertisement;
+        $ad -> title = $request->input('title');
+        $ad -> subtitle = $request->input('subtitle');
+        $ad -> description = $request->input('description');
+        $ad -> tags = $request->input('tags');
+        $ad -> image_name = 'test image';
+        $ad -> start_date = $request->input('start_date');
+        $ad -> end_date = $request->input('end_date');
+        $ad -> save();
+
+        return redirect('/offers')->with('success', 'Advertisement post successfuly!');
+
     }
 
     /**
@@ -52,7 +75,8 @@ class AdvertisementController extends Controller
      */
     public function show($id)
     {
-        return Advertisement::find($id);
+        $ads = Advertisement::find($id);
+        return view('pages.show')->with('ads', $ads);
     }
 
     /**

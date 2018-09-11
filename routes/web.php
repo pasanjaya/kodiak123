@@ -18,4 +18,5 @@
 Route::get('/', 'PagesController@index');
 Route::get('/offers', 'PagesController@offers');
 
-Route::resource('advertisement', 'AdvertisementController');
+// Route::resource('advertisement', 'AdvertisementController');
+Route::resource('offers', 'AdvertisementController');

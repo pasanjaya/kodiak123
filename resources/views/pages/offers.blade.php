@@ -20,7 +20,24 @@
             </div> --}}
 
             <div class="jumbotron text-center">
-                <p><a class="btn btn-primary btn-lg" href="/advertisement/create" role="button">Create</a> <a class="btn btn-success btn-lg" href="/advertisement/update" role="button">Update</a> <a class="btn btn-danger btn-lg" href="/advertisement/destroy" role="button">Delete</a></p>
+                <p><a class="btn btn-primary btn-lg" href="/offers/create" role="button">Create</a> <a class="btn btn-success btn-lg" href="/offers/update" role="button">Update</a> <a class="btn btn-danger btn-lg" href="/offers/destroy" role="button">Delete</a></p>
+            </div>
+            <div class="container">
+                <h3>Published Offers</h3>
+                @if(count($ads) > 0)
+                    @foreach ($ads as $ad)
+                        <div class="card border-primary mb-4" style="max-width: 50rem;">
+                            <div class="card-header">Offer id: {{$ad->id}}</div>
+                            <div class="card-body text-primary">
+                            <h5 class="card-title"><a href="offers/{{$ad->id}}">{{$ad->title}}</a></h5>
+                            <p class="card-text">{{$ad->created_at}}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                    {{$ads->links()}}
+                @else
+                    <p>No offer created yet !</p>
+                @endif
             </div>
             </main>
         </div>
