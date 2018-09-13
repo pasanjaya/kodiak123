@@ -20,3 +20,6 @@ Route::get('/offers', 'PagesController@offers');
 
 // Route::resource('advertisement', 'AdvertisementController');
 Route::resource('offers', 'AdvertisementController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -87,7 +87,8 @@ class AdvertisementController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ads = Advertisement::find($id);
+        return view('pages.edit')->with('ads', $ads);
     }
 
     /**
@@ -99,7 +100,27 @@ class AdvertisementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this -> validate($request, [
+            'title' => 'required',
+            'tags' => 'required',
+            'image' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required'
+        ]);
+
+        // update advertisment
+
+        $ad = Advertisement::find($id);
+        $ad -> title = $request->input('title');
+        $ad -> subtitle = $request->input('subtitle');
+        $ad -> description = $request->input('description');
+        $ad -> tags = $request->input('tags');
+        $ad -> image_name = 'test image';
+        $ad -> start_date = $request->input('start_date');
+        $ad -> end_date = $request->input('end_date');
+        $ad -> save();
+
+        return redirect('/offers')->with('success', 'Advertisement updated successfuly!');
     }
 
     /**
@@ -110,6 +131,8 @@ class AdvertisementController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ad = Advertisement::find($id);
+        $ad->delete();
+        return redirect('/offers')->with('success', 'Advertisement Deleted successfuly!');
     }
 }
