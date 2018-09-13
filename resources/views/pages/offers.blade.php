@@ -20,18 +20,24 @@
             </div> --}}
 
             <div class="jumbotron text-center">
-                <p><a class="btn btn-primary btn-lg" href="/offers/create" role="button">Create</a> <a class="btn btn-success btn-lg" href="/offers/update" role="button">Update</a> <a class="btn btn-danger btn-lg" href="/offers/destroy" role="button">Delete</a></p>
+                <p><a class="btn btn-primary btn-lg" href="/offers/create" role="button">Create</a></p>
             </div>
             <div class="container">
                 <h3>Published Offers</h3>
                 @if(count($ads) > 0)
                     @foreach ($ads as $ad)
                         <div class="card border-primary mb-4" style="max-width: 50rem;">
-                            <div class="card-header">Offer id: {{$ad->id}}</div>
-                            <div class="card-body text-primary">
-                            <h5 class="card-title"><a href="offers/{{$ad->id}}">{{$ad->title}}</a></h5>
-                            <p class="card-text">{{$ad->created_at}}</p>
+                            <div class="card-header">Offer id: {{$ad->id}} 
+                                {!!Form::open(['action' => ['AdvertisementController@destroy', $ad->id], 'method' => 'POST'])!!}
+                                    {{Form::hidden('_method', 'DELETE')}}
+                                    {{Form::submit('Delete', ['class'=> 'btn-sm btn-danger ml-3 float-right'])}}
+                                {!!Form::close()!!}                            
                             </div>
+                            <div class="card-body text-primary">
+                                <img class="card-img-top w-25 mr-5 float-left" src="/storage/advertisement_images/{{$ad->image_name}}" alt="ad image">
+                                <h5 class="card-title"><a href="offers/{{$ad->id}}">{{$ad->title}}</a></h5>
+                                <p class="card-text">{{$ad->created_at}}</p>
+                            </div>                           
                         </div>
                     @endforeach
                     {{$ads->links()}}

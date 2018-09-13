@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Advertisement;
 
 class AdvertisementController extends Controller
@@ -46,10 +47,26 @@ class AdvertisementController extends Controller
         $this -> validate($request, [
             'title' => 'required',
             'tags' => 'required',
-            'image' => 'required',
+            'image' => 'image|required|max:1999',
             'start_date' => 'required',
             'end_date' => 'required'
         ]);
+        
+        //image upload
+        if($request -> hasfile('image')){
+            $filenameWithExt = $request->file('image')->getClientOriginalName();
+            //get filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+            //get just ext
+            $extention = $request->file('image')->getClientOriginalExtension();
+
+            //store file
+            $filenameToStore = $filename.'_'.time().'_'.$extention;
+
+            //Upload path
+            $path = $request->file('image')->storeAs('public/advertisement_images',$filenameToStore);
+        }
 
         // create advertisment
 
@@ -58,7 +75,7 @@ class AdvertisementController extends Controller
         $ad -> subtitle = $request->input('subtitle');
         $ad -> description = $request->input('description');
         $ad -> tags = $request->input('tags');
-        $ad -> image_name = 'test image';
+        $ad -> image_name = $filenameToStore;
         $ad -> start_date = $request->input('start_date');
         $ad -> end_date = $request->input('end_date');
         $ad -> save();
@@ -108,6 +125,22 @@ class AdvertisementController extends Controller
             'end_date' => 'required'
         ]);
 
+        //Update image
+        if($request -> hasfile('image')){
+            $filenameWithExt = $request->file('image')->getClientOriginalName();
+            //get filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+            //get just ext
+            $extention = $request->file('image')->getClientOriginalExtension();
+
+            //store file
+            $filenameToStore = $filename.'_'.time().'_'.$extention;
+
+            //Upload path
+            $path = $request->file('image')->storeAs('public/advertisement_images',$filenameToStore);
+        }
+
         // update advertisment
 
         $ad = Advertisement::find($id);
@@ -115,7 +148,9 @@ class AdvertisementController extends Controller
         $ad -> subtitle = $request->input('subtitle');
         $ad -> description = $request->input('description');
         $ad -> tags = $request->input('tags');
-        $ad -> image_name = 'test image';
+        if($request -> hasfile('image')){
+            $ad -> image_name = $filenameToStore;
+        }
         $ad -> start_date = $request->input('start_date');
         $ad -> end_date = $request->input('end_date');
         $ad -> save();
@@ -132,6 +167,9 @@ class AdvertisementController extends Controller
     public function destroy($id)
     {
         $ad = Advertisement::find($id);
+
+        Storage::delete('public/advertisement_images/'.$ad->image_name);
+
         $ad->delete();
         return redirect('/offers')->with('success', 'Advertisement Deleted successfuly!');
     }

@@ -12,7 +12,7 @@
                 
                 <div class="card bg-light mb-3" style="max-width: 100rem;">
                     <div class="card-header h3">{{$ads->title}}</div>
-                    <img class="card-img-top" src=".../100px180/" alt="ad image">
+                    <img class="card-img-top w-100" src="/storage/advertisement_images/{{$ads->image_name}}" alt="ad image">
                     <div class="card-body">
                     <h5 class="card-title h4">{{$ads->start_date}} to {{$ads->end_date}}</h5>
                     <p class="card-text">{!!$ads->description!!}</p>

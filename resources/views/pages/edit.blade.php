@@ -4,7 +4,7 @@
 
             <h1 class="mb-5">Update Advertisement</h1>
 
-            {!! Form::open(['action' => ['AdvertisementController@update', $ads->id], 'method' => 'POST']) !!}
+            {!! Form::open(['action' => ['AdvertisementController@update', $ads->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
                 <div class="form-group">
                     {{Form::label('title', 'Title *')}}
                     {{Form::text('title', $ads->title, ['class'=> 'form-control', 'placeholder' => 'Title'])}}
