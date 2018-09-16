@@ -10656,3 +10656,41 @@ body {
   background-color: #95C6F9;
 }
 
+.float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #227DC7;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  -webkit-box-shadow: 2px 2px 3px #999;
+          box-shadow: 2px 2px 3px #999;
+}
+
+.my-float {
+  margin-top: 22px;
+}
+
+.logo {
+  background-color: #E9ECEF;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  margin: 0;
+  padding: 0;
+  border: 1px #ccc solid;
+}
+
+.jumbotron {
+  padding: 1rem 2rem !important;
+  border-radius: 0.4rem !important;
+  background-color: #465e77a3 !important;
+}
+
+.bg-dark-blue {
+  background-color: #465e77;
+}
+

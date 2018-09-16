@@ -19,8 +19,15 @@
                 <div class="catogeryPanel" id="fbeveragePanel">food</div>
             </div> --}}
 
-            <div class="jumbotron text-center">
-                <p><a class="btn btn-primary btn-lg" href="/offers/create" role="button">Create</a></p>
+            <div class="jumbotron text-right">
+                <div class="logo">
+                    <img src="/storage/brand_logos/noLogo.png" style="height: 100%; width: 100%;" alt="logo">
+                    
+                </div>
+                <a href="" class="btn btn-dark btn-lg" role="button">Edit Profile</a>
+                <a href="" class="btn btn-dark btn-lg" role="button">Logout</a> 
+                
+                {{-- <p><a class="btn btn-primary btn-lg" href="/offers/create" role="button">Create</a></p> --}}
             </div>
             <div class="container">
                 <h3>Published Offers</h3>
@@ -30,7 +37,7 @@
                             <div class="card-header">Offer id: {{$ad->id}} 
                                 {!!Form::open(['action' => ['AdvertisementController@destroy', $ad->id], 'method' => 'POST'])!!}
                                     {{Form::hidden('_method', 'DELETE')}}
-                                    {{Form::submit('Delete', ['class'=> 'btn-sm btn-danger ml-3 float-right'])}}
+                                    {{Form::submit('Delete', ['class'=> 'btn btn-sm btn-danger ml-3 float-right'])}}
                                 {!!Form::close()!!}                            
                             </div>
                             <div class="card-body text-primary">
@@ -45,8 +52,11 @@
                     <p>No offer created yet !</p>
                 @endif
             </div>
+            <a href="/offers/create" class="float"><span class="my-float" data-feather="plus"></span></a>
             </main>
         </div>
-    </div>   
+    </div>
+    <script>
+    </script>   
 
 @endsection

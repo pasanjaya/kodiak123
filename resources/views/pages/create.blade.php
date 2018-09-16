@@ -13,14 +13,14 @@
                     {{Form::label('subtitle', 'Subtitle')}}
                     {{Form::text('subtitle', '', ['class'=> 'form-control', 'placeholder' => 'Subtitle'])}}
                 </div>
-                <div class="form-group">
+                {{-- <div class="form-group">
                     {{Form::label('promoprice', 'Promotional Price')}}
                     {{Form::text('promoprice', '', ['class'=> 'form-control', 'placeholder' => 'Promotional Price'])}}
                 </div>
                 <div class="form-group">
                     {{Form::label('regprice', 'Regular Price')}}
                     {{Form::text('regprice', '', ['class'=> 'form-control', 'placeholder' => 'Regular Price'])}}
-                </div>
+                </div> --}}
                 <div class="form-group">
                     {{Form::label('description', 'Description')}}
                     {{Form::textarea('description', '', ['id'=> 'article-ckeditor','class'=> 'form-control', 'placeholder' => 'Description'])}}
@@ -42,10 +42,10 @@
                     {{Form::label('end_date', 'Offer End On * (mm/dd/yyyy)')}}
                     {{Form::date('end_date', \Carbon\Carbon::tomorrow()->toDateString(), ['class'=> 'form-control'])}}
                 </div>
-                <div class="form-group">
+                {{-- <div class="form-group">
                     {{Form::label('link', 'Offer Catch Link')}}
                     {{Form::text('link', '', ['class'=> 'form-control', 'placeholder' => 'Official link of offer'])}}
-                </div>
+                </div> --}}
                 {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
                 <br><br>
             {!! Form::close() !!}
