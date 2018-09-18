@@ -27,7 +27,7 @@
                 <p>
                 <a href="" class="btn btn-dark btn-lg float-left mt-3" role="button">Edit Profile</a>
                 {!!Form::open(['action' => 'Auth\LoginController@logout', 'method' => 'POST'])!!}
-                    {{Form::submit('Logout', ['class'=> 'btn btn-sm btn-danger mt-3 ml-3'])}}
+                    {{Form::submit('Logout', ['class'=> 'btn btn-sm btn-dark mt-3 ml-3'])}}
                 {!!Form::close()!!}</p>
 
                 {{-- <a href="" class="btn btn-dark btn-lg" role="button">Logout</a> --}}
@@ -38,7 +38,7 @@
                 @if(count($ads) > 0)
                     @foreach ($ads as $ad)
                         <div class="card border-primary mb-4" style="max-width: 50rem;">
-                            <div class="card-header">Offer id: {{$ad->id}} 
+                            <div class="card-header">ID: {{$ad->id}} 
                                 {!!Form::open(['action' => ['AdvertisementController@destroy', $ad->id], 'method' => 'POST', 'class'=>'confirm_delete'])!!}
                                     {{Form::hidden('_method', 'DELETE')}}
                                     {{Form::submit('Delete', ['class'=> 'btn btn-sm btn-danger ml-3 float-right'])}}

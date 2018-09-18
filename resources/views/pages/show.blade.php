@@ -10,7 +10,7 @@
                 {!!Form::close()!!}
                 <a href="/offers/{{$ads->id}}/edit" class="btn btn-primary ml-3 mt-3 float-right">Update</a>
                 
-                <div class="card bg-light mb-3" style="max-width: 100rem;">
+                <div class="card bg-light border-info mb-3" style="max-width: 100rem;">
                     <div class="card-header h3">{{$ads->title}}</div>
                     <img class="card-img-top w-100" src="/storage/advertisement_images/{{$ads->image_name}}" alt="ad image">
                     <div class="card-body">

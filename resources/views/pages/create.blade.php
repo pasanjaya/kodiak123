@@ -1,8 +1,10 @@
 @extends('layouts.appad')
 
 @section('content')
-        <div class="container">
-            <h1 class="mb-5">Create Advertisement</h1>
+    <div class="container">
+        <div class="card border-info" style="width: 75rem;">
+            <h2 class="card-header mb-5">Create Advertisement</h2>
+            <div class="card-body">
             {!! Form::open(['action' => 'AdvertisementController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
                 <div class="form-group">
                     {{Form::label('title', 'Title *')}}
@@ -50,8 +52,10 @@
                 <br><br>
             {!! Form::close() !!}
         </div>
-            </main>
         </div>
-    </div>   
+    </div>
+        </main>
+    </div>
+</div>   
 
 @endsection

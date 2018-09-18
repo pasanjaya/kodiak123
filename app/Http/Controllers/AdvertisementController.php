@@ -8,6 +8,18 @@ use App\Advertisement;
 
 class AdvertisementController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +32,13 @@ class AdvertisementController extends Controller
         // return Advertisement::where('title', 'Basic Tube Top')->get();
         // $ads = Advertisement::orderBy('updated_at', 'desc')->take(1)->get(); 
         // $ads = Advertisement::orderBy('updated_at', 'desc')->get();
-        $ads = Advertisement::orderBy('updated_at', 'desc')->paginate(2);
+        // $ads = Advertisement::orderBy('updated_at', 'desc')->paginate(2);
+
+        // $ads = Advertisement::orderBy('updated_at', 'desc')->paginate(2);
+
+        $ads = Advertisement::where('user_id', '=', auth()->user()->id)
+                            -> orderBy('updated_at', 'desc')->paginate(2);
+
         // return($ads);
         // return view('/frontpages.index') -> with('ads', $ads);
         return view('/pages.offers') -> with('ads', $ads);
@@ -78,9 +96,10 @@ class AdvertisementController extends Controller
         $ad -> image_name = $filenameToStore;
         $ad -> start_date = $request->input('start_date');
         $ad -> end_date = $request->input('end_date');
+        $ad -> user_id = auth()->user()->id;
         $ad -> save();
 
-        return redirect('/offers')->with('success', 'Advertisement post successfuly!');
+        return redirect('/offers')->with('success', 'Advertisement post successfully!');
 
     }
 
@@ -155,7 +174,7 @@ class AdvertisementController extends Controller
         $ad -> end_date = $request->input('end_date');
         $ad -> save();
 
-        return redirect('/offers')->with('success', 'Advertisement updated successfuly!');
+        return redirect('/offers')->with('success', 'Advertisement updated successfully!');
     }
 
     /**
@@ -171,6 +190,6 @@ class AdvertisementController extends Controller
         Storage::delete('public/advertisement_images/'.$ad->image_name);
 
         $ad->delete();
-        return redirect('/offers')->with('success', 'Advertisement Deleted successfuly!');
+        return redirect('/offers')->with('success', 'Advertisement Deleted successfully!');
     }
 }
