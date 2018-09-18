@@ -4,7 +4,7 @@
             <div class="container">
                 
                 {{-- <a href="/offers/{{$ads->id}}/" class="btn btn-danger ml-3 mt-3 float-right">Delete</a> --}}
-                {!!Form::open(['action' => ['AdvertisementController@destroy', $ads->id], 'method' => 'POST'])!!}
+                {!!Form::open(['action' => ['AdvertisementController@destroy', $ads->id], 'method' => 'POST', 'class'=>'confirm_delete'])!!}
                     {{Form::hidden('_method', 'DELETE')}}
                     {{Form::submit('Delete', ['class'=> 'btn btn-danger ml-3 mt-3 float-right'])}}
                 {!!Form::close()!!}
@@ -23,6 +23,31 @@
 
             </main>
         </div>
-    </div>   
+    </div>
+    <script>
+            $(document).ready(function(){
+                $( ".confirm_delete" ).submit(function( event ) {
+                    event.preventDefault();
+                    
+                    swal({
+                        title: 'Are you sure?',
+                        text: "Please click confirm to delete this item",
+                        type: 'warning',
+                        buttons: true,
+                        buttons: ["No, cancel!", "Yes, delete it!"],
+                        dangerMode: true,
+    
+                    })
+                    .then((willDelete) => {
+                        if(willDelete){
+                            $(".confirm_delete").off("submit").submit();
+                    }else{
+                        // swal("Your imaginary file is safe!");
+                        swal('Cancelled', 'Delete Cancelled', 'info');
+                    }
+                    });
+                });
+            });
+    </script>
 
 @endsection

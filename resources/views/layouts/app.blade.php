@@ -82,6 +82,9 @@
         feather.replace()
     </script>
 
+    {{-- SweetAlert --}}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
     <script>
         CKEDITOR.replace( 'article-ckeditor' );

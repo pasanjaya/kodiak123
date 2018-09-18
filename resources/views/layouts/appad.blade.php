@@ -16,6 +16,11 @@
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
+        {{-- SweetAlert --}}
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+        <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
+
     </head>
     <body>
         @include('inc.navbar')
@@ -29,13 +34,35 @@
         <script>
             feather.replace()
         </script>
+        
+        
 
-        <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
+        
 
         <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
         <script>
             CKEDITOR.replace( 'article-ckeditor' );
         </script>
+
+<script>
+    // Errors
+    var has_errors = 'false';
+    @if(count($errors) > 0)
+        has_errors = 'true';
+    @endif
+
+    if(has_errors == 'true'){
+        swal({
+            title: "Error",
+            text: jQuery('#ERROR').html(),
+            icon: "error",
+            // html: jQuery('#ERROR').html(),
+            showCloseButton: true,
+        });
+    }
+
+    
+    </script>
 
     </body>
 
