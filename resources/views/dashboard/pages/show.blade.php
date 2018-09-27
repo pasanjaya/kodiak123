@@ -8,7 +8,7 @@
                     {{Form::hidden('_method', 'DELETE')}}
                     {{Form::submit('Delete', ['class'=> 'btn btn-danger ml-3 mt-3 float-right'])}}
                 {!!Form::close()!!}
-                <a href="/dashboard/pages/offers/{{$ads->id}}/edit" class="btn btn-primary ml-3 mt-3 float-right">Update</a>
+                <a href="/dashboard/offers/{{$ads->id}}/edit" class="btn btn-primary ml-3 mt-3 float-right">Update</a>
                 
                 <div class="card bg-light border-info mb-3" style="max-width: 100rem;">
                     <div class="card-header h3">{{$ads->title}}</div>

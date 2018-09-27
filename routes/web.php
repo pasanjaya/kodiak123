@@ -15,11 +15,18 @@
 //     return view('welcome');
 // });
 
-Route::get('/dashboard', 'PagesController@index');
-Route::get('/dashboard/pages/offers', 'PagesController@offers');
+Route::get('/', 'LandingPageController@index');
+Route::get('/deals', 'LandingPageController@deals');
+Route::get('/about', 'LandingPageController@about');
+Route::get('/contact', 'LandingPageController@contact');
+
+
+
+Route::get('/dashboard', 'DashboardController@index');
+Route::get('/dashboard/offers', 'DashboardController@offers');
 
 // Route::resource('advertisement', 'AdvertisementController');
-Route::resource('/dashboard/pages/offers', 'AdvertisementController');
+Route::resource('/dashboard/offers', 'AdvertisementController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

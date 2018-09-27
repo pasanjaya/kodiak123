@@ -99,7 +99,7 @@ class AdvertisementController extends Controller
         $ad -> user_id = auth()->user()->id;
         $ad -> save();
 
-        return redirect('/dashboard/pages/offers')->with('success', 'Advertisement post successfully!');
+        return redirect('/dashboard/offers')->with('success', 'Advertisement post successfully!');
 
     }
 
@@ -174,7 +174,7 @@ class AdvertisementController extends Controller
         $ad -> end_date = $request->input('end_date');
         $ad -> save();
 
-        return redirect('/dashboard/pages/offers')->with('success', 'Advertisement updated successfully!');
+        return redirect('/dashboard/offers')->with('success', 'Advertisement updated successfully!');
     }
 
     /**
@@ -190,6 +190,6 @@ class AdvertisementController extends Controller
         Storage::delete('public/advertisement_images/'.$ad->image_name);
 
         $ad->delete();
-        return redirect('/dashboard/pages/offers')->with('success', 'Advertisement Deleted successfully!');
+        return redirect('/dashboard/offers')->with('success', 'Advertisement Deleted successfully!');
     }
 }

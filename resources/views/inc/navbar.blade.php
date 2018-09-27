@@ -19,19 +19,19 @@
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/dashboard/pages/offers">
+                      <a class="nav-link" href="/dashboard/offers">
                         <span data-feather="plus"></span>
                         Offers
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/messages">
+                      <a class="nav-link" href="/dashboard/messages">
                         <span data-feather="message-circle"></span>
                         Messages
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/reports">
+                      <a class="nav-link" href="/dashboard/reports">
                         <span data-feather="bar-chart-2"></span>
                         Reports
                       </a>

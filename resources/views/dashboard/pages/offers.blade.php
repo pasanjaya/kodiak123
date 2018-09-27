@@ -2,23 +2,6 @@
 
 @section('content')
 
-            {{-- <div id="catbarheader">
-                <div id="cat">Select a category</div>
-                <div id="buttonContainer">
-                <div class="toggelButton" id="cloth"><span data-feather="shopping-bag"></span> Clothing</div>
-                <div class="toggelButton" id="ccard"><span data-feather="credit-card"></span> Credit Cards</div>
-                <div class="toggelButton" id="fbeverage"> Food &amp; Beverages</div>
-                </div>
-            </div>
-            <div class="catagory_content">
-                <div class="catogeryPanel" id="clothPanel">
-                    
-                </div>
-
-                <div class="catogeryPanel" id="ccardPanel">this is credit card</div>
-                <div class="catogeryPanel" id="fbeveragePanel">food</div>
-            </div> --}}
-
             <div class="jumbotron text-right">
                 <div class="logo">
                     <img src="/storage/brand_logos/noLogo.png" style="height: 100%; width: 100%;" alt="logo">
@@ -30,7 +13,6 @@
                     {{Form::submit('Logout', ['class'=> 'btn btn-sm btn-dark mt-3 ml-3'])}}
                 {!!Form::close()!!}</p>
 
-                {{-- <a href="" class="btn btn-dark btn-lg" role="button">Logout</a> --}}
                 
             </div>
             <div class="container">
