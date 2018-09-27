@@ -41,7 +41,7 @@ class AdvertisementController extends Controller
 
         // return($ads);
         // return view('/frontpages.index') -> with('ads', $ads);
-        return view('/pages.offers') -> with('ads', $ads);
+        return view('/dashboard.pages.offers') -> with('ads', $ads);
     }
 
     /**
@@ -51,7 +51,7 @@ class AdvertisementController extends Controller
      */
     public function create()
     {
-        return view('pages.create');
+        return view('/dashboard.pages.create');
     }
 
     /**
@@ -99,7 +99,7 @@ class AdvertisementController extends Controller
         $ad -> user_id = auth()->user()->id;
         $ad -> save();
 
-        return redirect('/offers')->with('success', 'Advertisement post successfully!');
+        return redirect('/dashboard/pages/offers')->with('success', 'Advertisement post successfully!');
 
     }
 
@@ -112,7 +112,7 @@ class AdvertisementController extends Controller
     public function show($id)
     {
         $ads = Advertisement::find($id);
-        return view('pages.show')->with('ads', $ads);
+        return view('/dashboard.pages.show')->with('ads', $ads);
     }
 
     /**
@@ -124,7 +124,7 @@ class AdvertisementController extends Controller
     public function edit($id)
     {
         $ads = Advertisement::find($id);
-        return view('pages.edit')->with('ads', $ads);
+        return view('/dashboard.pages.edit')->with('ads', $ads);
     }
 
     /**
@@ -174,7 +174,7 @@ class AdvertisementController extends Controller
         $ad -> end_date = $request->input('end_date');
         $ad -> save();
 
-        return redirect('/offers')->with('success', 'Advertisement updated successfully!');
+        return redirect('/dashboard/pages/offers')->with('success', 'Advertisement updated successfully!');
     }
 
     /**
@@ -190,6 +190,6 @@ class AdvertisementController extends Controller
         Storage::delete('public/advertisement_images/'.$ad->image_name);
 
         $ad->delete();
-        return redirect('/offers')->with('success', 'Advertisement Deleted successfully!');
+        return redirect('/dashboard/pages/offers')->with('success', 'Advertisement Deleted successfully!');
     }
 }

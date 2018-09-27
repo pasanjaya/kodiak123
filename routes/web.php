@@ -15,11 +15,11 @@
 //     return view('welcome');
 // });
 
-Route::get('/', 'PagesController@index');
-Route::get('/offers', 'PagesController@offers');
+Route::get('/dashboard', 'PagesController@index');
+Route::get('/dashboard/pages/offers', 'PagesController@offers');
 
 // Route::resource('advertisement', 'AdvertisementController');
-Route::resource('offers', 'AdvertisementController');
+Route::resource('/dashboard/pages/offers', 'AdvertisementController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

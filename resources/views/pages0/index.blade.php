@@ -13,8 +13,6 @@
             {{Form::submit('Logout', ['class'=> 'btn btn-sm btn-dark ml-3'])}}
         {!!Form::close()!!}</p>
 
-        
-
 
 
     </div>    

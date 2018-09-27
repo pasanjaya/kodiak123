@@ -18,11 +18,15 @@ class PagesController extends Controller
     }
 
 
+    // public function index(){
+    //     return view('pages.index');
+    // }
+
     public function index(){
-        return view('pages.index');
+        return view('dashboard.pages.index');
     }
 
     public function offers(){
-        return view('pages.offers');
+        return view('dashboard.pages.offers');
     }
 }
