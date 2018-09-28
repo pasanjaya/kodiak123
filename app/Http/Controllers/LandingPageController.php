@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Advertisement;
 
 class LandingPageController extends Controller
 {
     public function index(){
-        return view('frontpages.index');
+        $deals = Advertisement::orderBy('updated_at', 'desc')->take(12)->get();
+        return view('frontpages.index')->with('deals', $deals);
     }
 
     public function deals(){

@@ -16,7 +16,10 @@
 // });
 
 Route::get('/', 'LandingPageController@index');
-Route::get('/deals', 'LandingPageController@deals');
+
+// Route::get('/deals', 'LandingPageController@deals');
+Route::get('/deals', 'DealsController@index');
+
 Route::get('/about', 'LandingPageController@about');
 Route::get('/contact', 'LandingPageController@contact');
 
