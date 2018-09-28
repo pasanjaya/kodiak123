@@ -1,4 +1,4 @@
-<p align="center"><img src="/storage/logo.png"></p>
+<p align="center"><img src="/logo.png"></p>
 
 <p align="center">Best offers in one place</p>
 
