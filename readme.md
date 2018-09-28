@@ -1,4 +1,4 @@
-<p align="center"><img src="">KODIAK Offers</p>
+<p align="center">KODIAK Offers</p>
 
 <p align="center">Best offers in one place</p>
 
@@ -14,11 +14,11 @@ Provide a user friendly web application to the people who seek for offers and pr
 
 ## Kodiak Team
 
-Bhanuka Aravinda de Silva - TL &amp; Android Developer
-Sandun Wedage - Android Developer
-Buddhi Nisansala - Web Developer
-Harshani Dileka - Web Developer
-Pasan Jayawickrama - Full-Stack Web Developer
+- Bhanuka Aravinda de Silva - *TL &amp; Android Developer*
+- Sandun Wedage - *Android Developer*
+- Buddhi Nisansala - *Web Developer*
+- Harshani Dileka - *Web Developer*
+- Pasan Jayawickrama - *Full-Stack Web Developer*
 
 
 ## License
