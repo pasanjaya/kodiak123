@@ -16,6 +16,11 @@ class LandingPageController extends Controller
         return view('frontpages.deals');
     }
 
+    public function details(){
+        return view('frontpages.details');
+    }
+    
+
     public function about(){
         return view('frontpages.about');
     }
