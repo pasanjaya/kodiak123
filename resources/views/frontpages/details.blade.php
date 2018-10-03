@@ -16,7 +16,7 @@
 			</a>
 
 			<a href="/deals" class="stext-109 cl8 hov-cl1 trans-04">
-				Men
+				Category
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
 
@@ -37,9 +37,9 @@
 							<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
 
 							<div class="slick3 gallery-lb">
-								<div class="item-slick3" data-thumb="/storage/images/product-detail-01.jpg">
+								<div class="item-slick3" data-thumb="/storage/advertisement_images/{{$deal->image_name}}">
 									<div class="wrap-pic-w pos-relative">
-										<img src="/storage/images/product-detail-01.jpg" alt="IMG-PRODUCT">
+										<img src="/storage/advertisement_images/{{$deal->image_name}}" alt="IMG-PRODUCT">
 
 										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="/storage/images/product-detail-01.jpg">
 											<i class="fa fa-expand"></i>
