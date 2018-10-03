@@ -21,7 +21,7 @@
 			</a>
 
 			<span class="stext-109 cl4">
-				Lightweight Jacket
+				{{$deal->title}}
 			</span>
 		</div>
 	</div>
@@ -74,7 +74,7 @@
 				<div class="col-md-6 col-lg-5 p-b-30">
 					<div class="p-r-50 p-t-5 p-lr-0-lg">
 						<h4 class="mtext-105 cl2 js-name-detail p-b-14">
-							Lightweight Jacket
+							{{$deal->title}}
 						</h4>
 
 						<span class="mtext-106 cl2">

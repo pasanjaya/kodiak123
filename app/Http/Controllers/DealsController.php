@@ -28,7 +28,9 @@ class DealsController extends Controller
      */
     public function show($id)
     {
-        //
+        $deal = Advertisement::find($id);
+
+        return view('frontpages.details')->with('deal', $deal);
     }
 
     
