@@ -2,7 +2,7 @@
 
 @section('content')
 
-            <div class="jumbotron text-right">
+            <div class="jumbotron text-right" style="min-height: 14rem">
                 <div class="logo">
                     <img src="/storage/brand_logos/noLogo.png" style="height: 100%; width: 100%;" alt="logo">
                 </div>
@@ -15,11 +15,11 @@
 
                 
             </div>
-            <div class="container">
+            <div class="mt-5">
                 <h3>Published Offers</h3>
                 @if(count($ads) > 0)
                     @foreach ($ads as $ad)
-                        <div class="card border-primary mb-4" style="max-width: 50rem;">
+                        <div class="card border-primary mt-5 mb-4 mr-5 ml-5 float-left" style="max-width: 40rem;">
                             <div class="card-header">ID: {{$ad->id}} 
                                 {!!Form::open(['action' => ['AdvertisementController@destroy', $ad->id], 'method' => 'POST', 'class'=>'confirm_delete'])!!}
                                     {{Form::hidden('_method', 'DELETE')}}
@@ -33,7 +33,10 @@
                             </div>                           
                         </div>
                     @endforeach
-                    {{$ads->links()}}
+                    <div class="float-left mt-5">
+                        {{$ads->links()}}
+                    </div>
+                    
                 @else
                     <p>No offer created yet !</p>
                 @endif
