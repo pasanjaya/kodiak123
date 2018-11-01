@@ -5,13 +5,13 @@
             <div class="jumbotron text-right">
                 <div class="logo">
                     <img src="/storage/brand_logos/noLogo.png" style="height: 100%; width: 100%;" alt="logo">
-                    
                 </div>
                 <p>
                 <a href="" class="btn btn-dark btn-lg float-left mt-3" role="button">Edit Profile</a>
-                {!!Form::open(['action' => 'Auth\LoginController@logout', 'method' => 'POST'])!!}
+                {{-- {!!Form::open(['action' => 'Auth\LoginController@logout', 'method' => 'POST'])!!}
                     {{Form::submit('Logout', ['class'=> 'btn btn-sm btn-dark mt-3 ml-3'])}}
-                {!!Form::close()!!}</p>
+                {!!Form::close()!!}--}}
+                </p> 
 
                 
             </div>

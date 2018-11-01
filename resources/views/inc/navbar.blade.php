@@ -4,6 +4,11 @@
     {{-- <ul class="navbar-nav px-3">
         <a class="nav-link" href="/">Sign_out</a>
     </ul> --}}
+    <div class="nav-link">
+      {!!Form::open(['action' => 'Auth\LoginController@logout', 'method' => 'POST'])!!}
+          {{Form::submit('Logout', ['class'=> 'btn btn-sm btn-danger mt-1 ml-2 mb-1'])}}
+      {!!Form::close()!!}
+    </div>
 </nav>
 
 
@@ -77,7 +82,7 @@
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
               <h1 class="h2">Dashboard</h1>
             </div>
-
+            
 
 
 

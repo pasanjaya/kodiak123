@@ -9,9 +9,9 @@
         
         {{-- <a class="btn btn-primary btn-lg" href="/login" role="button">Logout</a> --}}
        
-        <p>{!!Form::open(['action' => 'Auth\LoginController@logout', 'method' => 'POST'])!!}
+        {{-- <p>{!!Form::open(['action' => 'Auth\LoginController@logout', 'method' => 'POST'])!!}
             {{Form::submit('Logout', ['class'=> 'btn btn-sm btn-dark ml-3'])}}
-        {!!Form::close()!!}</p>
+        {!!Form::close()!!}</p> --}}
 
 
 
