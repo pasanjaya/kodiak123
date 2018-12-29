@@ -4,18 +4,18 @@
 <div class="container-fluid">
     <div class="row ">
         <div class="col-md-6">
-            <div class="card ml-5 mt-5" style="max-width: 50rem;">
+            <div class="card border-0 ml-5 mt-5" style="max-width: 50rem;">
                 <img class="card-img-top" src="/storage/misc_images/login_side.jpg" alt="Card image cap" style="opacity: 0.8; filter: alpha(opacity=80);">
                 <div class="card-body">
                     <h5 class="card-title">Special title treatment</h5>
                     <p class="card-text">With supporting below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    {{-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
                 </div>
             </div>
         </div>
 
         <div class="col-md-6 align-self-center">
-            <div class="card" style="max-width: 50rem; height:25rem">
+            <div class="card border-0" style="max-width: 50rem; height:25rem">
                 <div class="card-header bg-transparent border-bottom mb-5">{{ __('Login') }}</div>
 
                 <div class="card-body">
@@ -63,8 +63,8 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-lg btn-block btn-dark">
                                     {{ __('Login') }}
                                 </button>
 

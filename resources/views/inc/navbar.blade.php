@@ -1,12 +1,12 @@
 <nav class="navbar navbar-dark fixed-top bg-dark-blue flex-md-nowrap p-0 shadow">
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/">{{config('app.name'), 'LSAPP'}}</a>
-    {{-- <input class="form-control form-control-dark w-50" type="text" placeholder="Search" aria-label="Search"> --}}
+    
     {{-- <ul class="navbar-nav px-3">
         <a class="nav-link" href="/">Sign_out</a>
     </ul> --}}
     <div class="nav-link">
       {!!Form::open(['action' => 'Auth\LoginController@logout', 'method' => 'POST'])!!}
-          {{Form::submit('Logout', ['class'=> 'btn btn-sm btn-danger mt-1 ml-2 mb-1'])}}
+          {{Form::submit('Logout', ['class'=> 'btn btn-sm btn-link mt-1 ml-2 mb-1', 'style'=> 'color: #fff; text-decoration:none'])}}
       {!!Form::close()!!}
     </div>
 </nav>
@@ -14,11 +14,11 @@
 
 <div class="container-fluid">
         <div class="row">
-          <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <nav class="col-md-2 d-none d-md-block nav_column_dashboard sidebar">
             <div class="sidebar-sticky">
-                <ul class="nav flex-column">
+                <ul class="nav flex-column mt-4">
                     <li class="nav-item">
-                      <a class="nav-link active" href="/dashboard">
+                      <a class="nav-link" href="/dashboard">
                         <span data-feather="home"></span>
                         Dashboard <span class="sr-only">(current)</span>
                       </a>

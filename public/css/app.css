@@ -10482,9 +10482,10 @@ body {
 }
 
 .feather {
-  width: 16px;
-  height: 16px;
-  vertical-align: text-bottom;
+  width: 19px;
+  height: 19px;
+  vertical-align: text-top;
+  color: #E9ECEF;
 }
 
 /*
@@ -10523,7 +10524,7 @@ body {
 
 .sidebar .nav-link {
   font-weight: 500;
-  color: #333;
+  color: #E9ECEF;
 }
 
 .sidebar .nav-link .feather {
@@ -10692,5 +10693,9 @@ body {
 
 .bg-dark-blue {
   background-color: #465e77;
+}
+
+.nav_column_dashboard {
+  background-color: #2d353d;
 }
 

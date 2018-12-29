@@ -22,7 +22,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel shadow-sm "> 
-            <div class="container">
+            <div class="container-fluid">
                 
                 <a href="{{ url('/') }}" class="navbar">
                     <img src="/storage/images/logo-02.png" style="width:146px; height:55px;" alt="{{ config('app.name', 'KodiacOffers') }}">
