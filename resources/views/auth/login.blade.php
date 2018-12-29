@@ -1,11 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card border-info mt-5" style="max-width: 50rem;">
-                <div class="card-header">{{ __('Login') }}</div>
+<div class="container-fluid">
+    <div class="row ">
+        <div class="col-md-6">
+            <div class="card ml-5 mt-5" style="max-width: 50rem;">
+                <img class="card-img-top" src="/storage/misc_images/login_side.jpg" alt="Card image cap" style="opacity: 0.8; filter: alpha(opacity=80);">
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 align-self-center">
+            <div class="card" style="max-width: 50rem; height:25rem">
+                <div class="card-header bg-transparent border-bottom mb-5">{{ __('Login') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

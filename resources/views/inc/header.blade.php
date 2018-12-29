@@ -12,7 +12,7 @@
                     Help & FAQs
                 </a>
 
-                <a href="login" class="flex-c-m trans-04 p-lr-25">
+                <a href="/dashboard" class="flex-c-m trans-04 p-lr-25">
                     Advertiser
                 </a>
 
@@ -54,9 +54,9 @@
 
             <!-- Icon header -->
             <div class="wrap-icon-header flex-w flex-r-m">
-                <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
+                {{-- <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
                     <i class="zmdi zmdi-search"></i>
-                </div>
+                </div> --}}
 
                 <!-- <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
                     <i class="zmdi zmdi-favorite-outline"></i>

@@ -23,8 +23,10 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel shadow-sm "> 
             <div class="container">
-                <h3 class="navbar">{{ config('app.name', 'Laravel') }}</h3>
-                {{-- <a href="{{ url('/') }}"></a> --}}
+                
+                <a href="{{ url('/') }}" class="navbar">
+                    <img src="/storage/images/logo-02.png" style="width:146px; height:55px;" alt="{{ config('app.name', 'KodiacOffers') }}">
+                </a>
             
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
