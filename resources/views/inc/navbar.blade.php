@@ -1,5 +1,5 @@
 <nav class="navbar navbar-dark fixed-top bg-dark-blue flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/">{{config('app.name'), 'LSAPP'}}</a>
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/">{{config('app.name'), 'KodiakOffers'}}</a>
     
     {{-- <ul class="navbar-nav px-3">
         <a class="nav-link" href="/">Sign_out</a>
@@ -17,7 +17,15 @@
           <nav class="col-md-2 d-none d-md-block nav_column_dashboard sidebar">
             <div class="sidebar-sticky">
                 <ul class="nav flex-column mt-4">
-                    <li class="nav-item">
+                    <li class="nav-item mb-2">
+                        <a class="nav-link" href="/dashboard/profile">
+                          <img src="/svg/man.svg" alt="im_advertiser" class="rounded-circle border border-dark mr-2" style="width:60px; height:60px;">
+                          {{auth()->user()->name}} <span data-feather="edit"></span>
+                          <span class="sr-only">(current)</span>
+                        </a>
+                        <span class="h6 ml-5 d-block font-italic text-secondary">{{auth()->user()->email}}</span>
+                      </li>
+                    <li class="nav-item mt-2">
                       <a class="nav-link" href="/dashboard">
                         <span data-feather="home"></span>
                         Dashboard <span class="sr-only">(current)</span>
@@ -80,7 +88,7 @@
     
           <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-              <h1 class="h2">Dashboard</h1>
+              <span class="h5 text-capitalize font-italic text-muted">@php $uri = Request::path(); echo str_replace('/', ' > ', $uri) @endphp</span>
             </div>
             
 

@@ -29,4 +29,8 @@ class DashboardController extends Controller
     public function offers(){
         return view('dashboard.pages.offers');
     }
+
+    public function profile(){
+        return view('dashboard.pages.profile');
+    }
 }
