@@ -11,32 +11,27 @@
                     <div class="row justify-content-center mb-4">
                         <img src="/svg/man.svg" alt="im_advertiser" class="rounded-circle border border-dark mr-2" style="width:120px; height:120px;">
                     </div>
-                    {{-- <div class="row text-center justify-content-center">
-                        <form>
-                            <div class="form-group">
-                                <label for="exampleFormControlFile1">Upload a different image</label>
-                                <input type="file" class="form-control-file border" id="exampleFormControlFile1">
-                            </div>
-                    </div> --}}
-                    <form action="">
+
+                    {!! Form::open(['action' => ['BusinessProfileController@update', auth()->user()->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
                         <div class="form-group">
                             <div class="row text-center justify-content-center">
-                                <label for="exampleFormControlFile1" class="">Upload a different image</label>
+                                <p>Upload a different image</p>
                             </div>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Image</span>
                                 </div>
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="inputGroupFile01">
-                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                    {{Form::file('image', ['class'=> 'custom-file-input'])}}
+                                    {{Form::label('image', 'Choose File', ['class'=> 'custom-file-label'])}}
                                 </div>
                             </div>
                         </div>
-                        <div class="row text-center justify-content-center">
-                            <button type="submit" class="btn btn-primary">Change Image</button>
+                        <div class="form-group">
+                            {{Form::hidden('_method', 'PUT')}}
+                            {{Form::submit('Change Image', ['class' => 'btn btn-primary'])}}
                         </div>
-                    </form>
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>
@@ -59,13 +54,31 @@
                 <div class="card-body">
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
-                            <form>
+                            
+                            {!! Form::open(['action' => ['BusinessProfileController@update', auth()->user()->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+                                
                                 <div class="form-group row">
-                                    <label for="staticEmail" class="col-sm-2 col-form-label">Name</label>
+                                    {{Form::label('name', 'Name *', ['class' => 'col-sm-2 col-form-label'])}}
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="staticEmail" value="{{auth()->user()->name}}">
+                                        {{Form::text('name', auth()->user()->name, ['class' => 'form-control'])}}
                                     </div>
                                 </div>
+
+                                <div class="form-group row">
+                                    {{Form::label('email', 'Email *', ['class' => 'col-sm-2 col-form-label'])}}
+                                    <div class="col-sm-10">
+                                        {{Form::text('email', auth()->user()->email, ['class' => 'form-control'])}}
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    {{Form::label('name', 'Name *', ['class' => 'col-sm-2 col-form-label'])}}
+                                    <div class="col-sm-10">
+                                        {{Form::text('name', auth()->user()->name, ['class' => 'form-control'])}}
+                                    </div>
+                                </div>
+
+
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
                                     <div class="col-sm-10">
@@ -85,7 +98,7 @@
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Save Changes</button>
-                            </form>
+                            {!! Form::close() !!}
                         </div>
                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                             <form>
@@ -182,7 +195,7 @@
                                     </div>
                                 </div> --}}
                                 <button type="submit" class="btn btn-primary">Save Changes</button>
-                            </form>
+                            {!! Form::close() !!}
                         </div>
                         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
                     </div>

@@ -34,6 +34,7 @@ Route::get('/dashboard/profile', 'DashboardController@profile'); //advertiser pr
 
 // Route::resource('advertisement', 'AdvertisementController');
 Route::resource('/dashboard/offers', 'AdvertisementController');
+Route::resource('/dashboard/profile', 'BusinessProfileController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
