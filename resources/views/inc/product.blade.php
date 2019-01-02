@@ -7,19 +7,19 @@
                     All Offers
                 </button>
 
-                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".clothing">
+                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".products1">
                     Fashion & Clothing
                 </button>
 
-                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".travel">
+                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".products3">
                     Travel & Leisure
                 </button>
 
-                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".foodbeverage">
+                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".products2">
                     Food & Beverages
                 </button>
 
-                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".finance">
+                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".products4">
                     Finance
                 </button>
 
@@ -57,7 +57,7 @@
 
         <div class="row isotope-grid">
             @foreach ($deals as $deal)
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item products">
+            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item products{{$deal->category_id}}">
                     <!-- Block2 -->
                     <div class="block2">
                         <div class="block2-pic hov-img0">
