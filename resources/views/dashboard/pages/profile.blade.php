@@ -58,122 +58,124 @@
                             {!! Form::open(['action' => ['BusinessProfileController@update', auth()->user()->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
                                 
                                 <div class="form-group row">
-                                    {{Form::label('name', 'Name *', ['class' => 'col-sm-2 col-form-label'])}}
+                                    {{Form::label('name', 'Name', ['class' => 'col-sm-2 col-form-label'])}}
                                     <div class="col-sm-10">
                                         {{Form::text('name', auth()->user()->name, ['class' => 'form-control'])}}
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    {{Form::label('email', 'Email *', ['class' => 'col-sm-2 col-form-label'])}}
+                                    {{Form::label('email', 'Email', ['class' => 'col-sm-2 col-form-label'])}}
                                     <div class="col-sm-10">
-                                        {{Form::text('email', auth()->user()->email, ['class' => 'form-control'])}}
+                                        {{Form::email('email', auth()->user()->email, ['class' => 'form-control'])}}
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    {{Form::label('name', 'Name *', ['class' => 'col-sm-2 col-form-label'])}}
+                                    {{Form::label('current_pass', 'Current Password', ['class' => 'col-sm-2 col-form-label'])}}
                                     <div class="col-sm-10">
-                                        {{Form::text('name', auth()->user()->name, ['class' => 'form-control'])}}
+                                        {{Form::password('current_pass', ['class' => 'form-control', 'placeholder' => 'Current Password'])}}
                                     </div>
                                 </div>
 
+                                <div class="form-group row">
+                                    {{Form::label('new_pass', 'New Password', ['class' => 'col-sm-2 col-form-label'])}}
+                                    <div class="col-sm-10">
+                                        {{Form::password('new_pass', ['class' => 'form-control', 'placeholder' => 'New Password'])}}
+                                    </div>
+                                </div>
 
                                 <div class="form-group row">
-                                    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                                    {{Form::label('confirm_pass', 'Confirm Password', ['class' => 'col-sm-2 col-form-label'])}}
                                     <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="staticEmail" value="{{auth()->user()->email}}">
+                                        {{Form::password('confirm_pass', ['class' => 'form-control', 'placeholder' => 'Confirm Password'])}}
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                                    <div class="col-sm-10">
-                                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="inputPassword" class="col-sm-2 col-form-label">Confirm Password</label>
-                                    <div class="col-sm-10">
-                                    <input type="password" class="form-control" id="inputPassword" placeholder="Confirm Password">
-                                    </div>
-                                </div>
+
                                 <button type="submit" class="btn btn-primary">Save Changes</button>
                             {!! Form::close() !!}
                         </div>
                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <form>
+
+                            {!! Form::open(['action' => ['BusinessProfileController@update', auth()->user()->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+                                
                                 <div class="form-group row">
-                                    <label for="staticEmail" class="col-sm-2 col-form-label">Registerd Name</label>
+                                    {{ Form::label('reg_name', 'Registerd Name', ['class' => 'col-sm-2 col-form-label']) }}
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="staticEmail" value="{{auth()->user()->name}}">
+                                        {{ Form::text('reg_name', auth()->user()->name, ['class' => 'form-control']) }}
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    {{ Form::label('reg_no', 'Registered No', ['class' => 'col-sm-2 col-form-label']) }}
+                                    <div class="col-sm-10">
+                                        {{ Form::text('reg_no','', ['class' => 'form-control', 'placeholder'=> 'Registered No']) }}
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    {{ Form::label('category', 'Category', ['class' => 'col-sm-2 col-form-label']) }}
+                                    <div class="col-sm-10">
+                                        {{ Form::select('category', [null => 'Choose...', 'one' => '...'], null, ['class' => 'form-control']) }}
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    {{ Form::label('sub_category', 'Sub Category', ['class' => 'col-sm-2 col-form-label']) }}
+                                    <div class="col-sm-10">
+                                        {{ Form::select('sub_category', [null => 'Choose...', 'one' => '...'], null, ['class' => 'form-control']) }}
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    {{ Form::label('about', 'About Business', ['class' => 'col-sm-2 col-form-label']) }}
+                                    <div class="col-sm-10">
+                                        {{ Form::textarea('about', '', ['class' => 'form-control', 'rows' => 2, 'cols' => 40 ]) }}
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    {{ Form::label('street', 'Street Name', ['class' => 'col-sm-2 col-form-label']) }}
+                                    <div class="col-sm-10">
+                                        {{ Form::text('street', '', ['class' => 'form-control', 'placeholder' => 'Street Name']) }}
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    {{ Form::label('city', 'City', ['class' => 'col-sm-2 col-form-label']) }}
+                                    <div class="col-sm-10">
+                                        {{ Form::select('city', [null => 'Choose...', 'colombo' => 'Colombo'], null, ['class' => 'form-control']) }}
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="staticEmail" class="col-sm-2 col-form-label">Registered No</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="staticEmail" value="{{auth()->user()->name}}">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="inputState" class="col-sm-2 col-form-label">Category</label>
-                                    <div class="col-sm-10">
-                                        <select id="inputState" class="form-control">
-                                            <option selected>Choose...</option>
-                                            <option>...</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="inputState" class="col-sm-2 col-form-label">Sub Category</label>
-                                    <div class="col-sm-10">
-                                        <select id="inputState" class="form-control">
-                                            <option selected>Choose...</option>
-                                            <option>...</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="staticEmail" class="col-sm-2 col-form-label">About Company</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="staticEmail" value="{{auth()->user()->name}}">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="staticEmail" class="col-sm-2 col-form-label">Street Name</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="staticEmail" value="{{auth()->user()->name}}">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="inputState" class="col-sm-2 col-form-label">City</label>
-                                    <div class="col-sm-10">
-                                        <select id="inputState" class="form-control">
-                                            <option selected>Choose...</option>
-                                            <option>...</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
+                                    {{ Form::label('tel', 'Telephone No.', ['class' => 'col-sm-2 col-form-label']) }}
                                     <label for="staticEmail" class="col-sm-2 col-form-label">Telephone No.</label>
                                     <div class="col-sm-10">
+                                        {{ Form::text('tel', auth()->user()->name, ['class' => 'form-control']) }}
                                         <input type="text" class="form-control" id="staticEmail" value="{{auth()->user()->name}}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
+                                    {{ Form::label('reg_name', 'Registerd Name', ['class' => 'col-sm-2 col-form-label']) }}
                                     <label for="staticEmail" class="col-sm-2 col-form-label">Website</label>
                                     <div class="col-sm-10">
+                                        {{ Form::text('reg_name', auth()->user()->name, ['class' => 'form-control']) }}
                                         <input type="text" class="form-control" id="staticEmail" value="{{auth()->user()->name}}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
+                                    {{ Form::label('reg_name', 'Registerd Name', ['class' => 'col-sm-2 col-form-label']) }}
                                     <label for="staticEmail" class="col-sm-2 col-form-label">Business Email</label>
                                     <div class="col-sm-10">
+                                        {{ Form::text('reg_name', auth()->user()->name, ['class' => 'form-control']) }}
                                         <input type="text" class="form-control" id="staticEmail" value="{{auth()->user()->name}}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
+                                    {{ Form::label('reg_name', 'Registerd Name', ['class' => 'col-sm-2 col-form-label']) }}
                                     <label for="staticEmail" class="col-sm-2 col-form-label">Inquiry Email</label>
                                     <div class="col-sm-10">
+                                        {{ Form::text('reg_name', auth()->user()->name, ['class' => 'form-control']) }}
                                         <input type="text" class="form-control" id="staticEmail" value="{{auth()->user()->name}}">
                                     </div>
                                 </div>
