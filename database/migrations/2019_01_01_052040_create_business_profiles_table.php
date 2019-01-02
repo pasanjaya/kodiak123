@@ -15,14 +15,19 @@ class CreateBusinessProfilesTable extends Migration
     {
         Schema::create('business_profiles', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('Registerd Name');
-            $table->string('Registerd Name');
-            $table->string('Registerd Name');
-            $table->string('Registerd Name');
-            $table->string('Registerd Name');
-            $table->string('email')->unique();
+            $table->string('reg_name');
+            $table->string('reg_no');
+            $table->string('category');
+            $table->string('sub_category');
+            $table->string('about');
+            $table->string('image_name');
+            $table->string('street');
+            $table->string('city');
+            $table->string('tel');
+            $table->string('url');
+            $table->string('business_email')->unique();
+            $table->string('inq_mail')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
             $table->timestamps();
         });
     }
