@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\BusinessProfile;
+use App\AdvertiesmentCategory;
+use App\User;
 
 class BusinessProfileController extends Controller
 {
@@ -27,15 +29,15 @@ class BusinessProfileController extends Controller
     public function index()
     {
         // $barnd = BusinessProfile::all();
-        $brand = BusinessProfile::all()->where('user_id', '=', auth()->user()->id);
+        $user_id = auth()->user()->id;
+        $brand = BusinessProfile::where('user_id', '=', $user_id)->take(1)->get();
         
-        // foreach($barnd as $row){
-        //     echo $row->id;
-        // }
-        // return($brand);
-        // return(auth()->user()->id);
+        $user = User::find($user_id);
+        
+        // return($brand[0]);
 
-        return view('/dashboard.pages.profile') -> with('brand', $brand);
+        return view('/dashboard.pages.profile')->with('brand', $brand)->with('profile', $user->profile);
+
     }
 
     /**
@@ -45,7 +47,9 @@ class BusinessProfileController extends Controller
      */
     public function create()
     {
-        return view('/dashboard.pages.createprofile');
+        $category = AdvertiesmentCategory::pluck('category_name', 'category_id');
+
+        return view('/dashboard.pages.createprofile')->with('category', $category);
     }
 
     /**
@@ -92,7 +96,7 @@ class BusinessProfileController extends Controller
         $brand -> reg_name = $request->input('reg_name');
         $brand -> reg_no = $request->input('reg_no');
         $brand -> category = $request->input('category');
-        $brand -> sub_category = $request->input('sub_category');
+        // $brand -> sub_category = $request->input('sub_category');
         $brand -> about = $request->input('about');
         $brand -> image_name = $filenameToStore;
         $brand -> street = $request->input('street');

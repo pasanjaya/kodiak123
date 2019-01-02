@@ -14,8 +14,8 @@ class CreateAdvertiesmentCategoriesTable extends Migration
     public function up()
     {
         Schema::create('advertiesment_categories', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+            $table->increments('category_id');
+            $table->string('category_name');
         });
     }
 

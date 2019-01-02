@@ -26,7 +26,7 @@
                                         </div>
                                         <div class="custom-file">
                                             {{Form::file('image_name', ['class'=> 'custom-file-input'])}}
-                                            {{Form::label('image_name', 'Choose File', ['class'=> 'custom-file-label'])}}
+                                            {{Form::label('image_name', '', ['class'=> 'custom-file-label'])}}
                                         </div>
                                     </div>
                                 </div>
@@ -52,16 +52,16 @@
                 <div class="form-group row">
                     {{ Form::label('category', 'Category', ['class' => 'col-sm-2 col-form-label']) }}
                     <div class="col-sm-10">
-                        {{ Form::select('category', [null => 'Choose...', 'one' => '...'], null, ['class' => 'form-control']) }}
+                        {{ Form::select('category', $category, null, ['class' => 'form-control']) }}
                     </div>
                 </div>
 
-                <div class="form-group row">
+                {{-- <div class="form-group row">
                     {{ Form::label('sub_category', 'Sub Category', ['class' => 'col-sm-2 col-form-label']) }}
                     <div class="col-sm-10">
-                        {{ Form::select('sub_category', [null => 'Choose...', 'one' => '...'], null, ['class' => 'form-control']) }}
+                        {{ Form::select('sub_category', [AdvertiesmentCategory::get('category'), 'one' => '...'], null, ['class' => 'form-control']) }}
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="form-group row">
                     {{ Form::label('about', 'About Business', ['class' => 'col-sm-2 col-form-label']) }}

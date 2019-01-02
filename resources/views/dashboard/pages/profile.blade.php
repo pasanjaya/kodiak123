@@ -16,9 +16,6 @@
                     <li class="nav-item">
                         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Business Profile</a>
                     </li>
-                    {{-- <li class="nav-item">
-                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
-                    </li> --}}
                 </ul>
             </div>
             <div class="card-body">
@@ -76,7 +73,7 @@
                                     <div class="card border-0 card-block d-flex">
                                         <div class="card-body">
                                             <div class="row justify-content-center mb-4">
-                                                <img src="/svg/man.svg" alt="im_advertiser" class="rounded-circle border border-dark mr-2" style="width:120px; height:120px;">
+                                            <img src="/storage/brand_logos/{{ $brand[0]->image_name }}" alt="im_advertiser" class="rounded-circle border border-dark mr-2" style="width:120px; height:120px;">
                                             </div>
 
                                             <div class="form-group">
@@ -119,12 +116,12 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            {{-- <div class="form-group row">
                                 {{ Form::label('sub_category', 'Sub Category', ['class' => 'col-sm-2 col-form-label']) }}
                                 <div class="col-sm-10">
                                     {{ Form::select('sub_category', [null => 'Choose...', 'one' => '...'], null, ['class' => 'form-control']) }}
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="form-group row">
                                 {{ Form::label('about', 'About Business', ['class' => 'col-sm-2 col-form-label']) }}
