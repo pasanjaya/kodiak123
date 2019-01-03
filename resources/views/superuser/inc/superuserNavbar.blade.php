@@ -35,6 +35,16 @@
                       <a class="nav-link" href="/dashboard/offers">
                         <span data-feather="plus"></span>
                         Advertisement
+                        </ul>
+                            <li class="nav-item">
+                              <a class="nav-link" href="/dashboard/offers">
+                                <span data-feather="plus"></span>
+                                  Verify Advertisement
+                        
+                              </a>
+                          </ul>
+                      </li>
+                          
                       </a>
                     <!-- </li>
                     <li class="nav-item">
