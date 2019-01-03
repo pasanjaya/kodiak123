@@ -19,7 +19,7 @@
                 <ul class="nav flex-column mt-4">
                     <li class="nav-item mb-2">
                         <a class="nav-link" href="/dashboard/profile">
-                          <img src="/storage/brand_logos/{{ $profile->image_name }}" alt="im_advertiser" class="rounded-circle border border-dark bg-light mr-2" style="width:60px; height:60px;">
+                          <img src="/storage/brand_logos/man.svg" alt="im_advertiser" class="rounded-circle border border-dark bg-light mr-2" style="width:60px; height:60px;">
                           {{ auth()->user()->name }} <span data-feather="edit"></span>
                           <span class="sr-only">(current)</span>
                         </a>

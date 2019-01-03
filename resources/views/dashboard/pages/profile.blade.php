@@ -78,18 +78,11 @@
 
                                             <div class="form-group">
                                                 <div class="row text-center justify-content-center">
-                                                    <p>Upload a different image</p>
-                                                </div>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text">Image</span>
-                                                    </div>
-                                                    <div class="custom-file">
-                                                        {{Form::file('image_name', ['class'=> 'custom-file-input'])}}
-                                                        {{Form::label('image_name', '', ['class'=> 'custom-file-label'])}}
-                                                    </div>
+                                                    {{Form::label('image_name', 'Upload a different image')}}
+                                                    {{Form::file('image_name', ['class'=> 'form-control-file, border', 'placeholder' => 'Image'])}}
                                                 </div>
                                             </div>
+                                            
                                         </div>
                                     </div>
                                 </div>

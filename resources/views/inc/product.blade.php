@@ -75,7 +75,7 @@
                                 </a>
     
                                 <span class="stext-105 cl3">
-                                    10% off
+                                    Ends: {{$deal->end_date}}
                                 </span>
                             </div>
     
