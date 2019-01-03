@@ -8,7 +8,7 @@ use App\Advertisement;
 class LandingPageController extends Controller
 {
     public function index(){
-        $deals = Advertisement::orderBy('updated_at', 'desc')->take(12)->get();
+        $deals = Advertisement::where('reject_flag', '=', 0)->orderBy('updated_at', 'desc')->take(12)->get();
         return view('frontpages.index')->with('deals', $deals);
     }
 

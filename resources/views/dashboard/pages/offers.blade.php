@@ -2,21 +2,8 @@
 
 @section('content')
 
-            <div class="jumbotron text-right" style="min-height: 14rem">
-                <div class="logo">
-                    <img src="/storage/brand_logos/noLogo.png" style="height: 100%; width: 100%;" alt="logo">
-                </div>
-                <p>
-                <a href="" class="btn btn-dark btn-lg float-left mt-3" role="button">Edit Profile</a>
-                {{-- {!!Form::open(['action' => 'Auth\LoginController@logout', 'method' => 'POST'])!!}
-                    {{Form::submit('Logout', ['class'=> 'btn btn-sm btn-dark mt-3 ml-3'])}}
-                {!!Form::close()!!}--}}
-                </p> 
-
-                
-            </div>
-            <div class="mt-5">
-                <h3>Published Offers</h3>
+            <div class="mt-2">
+                <h3>Published Offers <span class="feather-24-success" data-feather="check-circle"></span></h3>
                 @if(count($ads) > 0)
                     <div class="row">
                         @foreach ($ads as $ad)
@@ -41,11 +28,39 @@
                         </div>
                     </div>
                     
-                    
                 @else
                     <p>No offer created yet !</p>
                 @endif
             </div>
+            <hr>
+            <div class="mt-2 ">
+                    <h3>Rejected Advertiesments <span class="feather-24" data-feather="alert-circle"></span></h3>
+                    @if(count($rejects) > 0)
+                        <div class="row">
+                            @foreach ($rejects as $reject)
+                                <div class="card border-danger mt-5 mb-4 mr-5 ml-5 float-left" style="max-width: 35rem;">
+                                    <div class="card-header alert-danger">ID: {{$reject->id}}
+                                        {!!Form::open(['action' => ['AdvertisementController@destroy', $reject->id], 'method' => 'POST', 'class'=>'confirm_delete'])!!}
+                                            {{Form::hidden('_method', 'DELETE')}}
+                                            {{Form::submit('Delete', ['class'=> 'btn btn-sm btn-danger ml-3 float-right'])}}
+                                        {!!Form::close()!!}                            
+                                    </div>
+                                    <div class="card-body text-primary">
+                                        <img class="card-img-top w-25 mr-5 float-left" src="/storage/advertisement_images/{{$reject->image_name}}" alt="ad image">
+                                        <h5 class="card-title"><a href="offers/{{$reject->id}}">{{$reject->title}}</a></h5>
+                                        <p class="card-text">{{$reject->created_at}}</p>
+                                    </div>                           
+                                </div>
+                            @endforeach
+                        </div>
+                        <div class="row">
+                            <div class="float-right mt-5">
+                                {{$rejects->links()}}
+                            </div>
+                        </div>
+                        
+                    @endif
+                </div>
             <a href="offers/create" class="float"><span class="my-float" data-feather="plus"></span></a>
             </main>
         </div>

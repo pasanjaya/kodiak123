@@ -41,13 +41,18 @@ class AdvertisementController extends Controller
         $user_id = auth()->user()->id;
         
         $ads = Advertisement::where('user_id', '=', $user_id)
+                                ->where('reject_flag', '=', 0)
+                                -> orderBy('updated_at', 'desc')->paginate(2);
+
+        $rejectads = Advertisement::where('user_id', '=', $user_id)
+                            ->where('reject_flag', '=', 1)
                             -> orderBy('updated_at', 'desc')->paginate(2);
 
         $user = User::find($user_id);
 
         // return($ads);
         // return view('/frontpages.index') -> with('ads', $ads);
-        return view('/dashboard.pages.offers') -> with('ads', $ads)->with('profile', $user->profile);
+        return view('/dashboard.pages.offers') ->with('ads', $ads)->with('rejects', $rejectads)->with('profile', $user->profile);
     }
 
     /**
@@ -57,7 +62,10 @@ class AdvertisementController extends Controller
      */
     public function create()
     {
-        return view('/dashboard.pages.create');
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+        
+        return view('/dashboard.pages.create')->with('profile', $user->profile);
     }
 
     /**
@@ -103,6 +111,13 @@ class AdvertisementController extends Controller
         $ad -> start_date = $request->input('start_date');
         $ad -> end_date = $request->input('end_date');
         $ad -> user_id = auth()->user()->id;
+
+        // get category id form business profilr
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+
+        $ad -> category_id = intval($user->profile->category);
+        $ad -> reject_flag = 0;
         $ad -> save();
 
         return redirect('/dashboard/offers')->with('success', 'Advertisement post successfully!');

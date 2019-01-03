@@ -8,6 +8,20 @@ body {
     vertical-align: text-top;
     color: #E9ECEF;
   }
+
+  .feather-24 {
+    width: 24px;
+    height: 24px;
+    vertical-align: center;
+    color: rgb(252, 106, 119);
+  }
+
+  .feather-24-success{
+    width: 24px;
+    height: 24px;
+    vertical-align: center;
+    color: #087249;
+  }
   
   /*
    * Sidebar
@@ -198,11 +212,14 @@ body {
 
   .logo{
     background-color: #E9ECEF;
-    border-radius: 50%;
+    // border-radius: 50%;
     width: 120px;
     height: 120px;
-    margin: 0;
+    // margin: 0;
     padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: 1px #ccc solid;
   }
 
