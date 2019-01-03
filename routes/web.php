@@ -30,7 +30,7 @@ Route::get('/contact', 'LandingPageController@contact');
 
 Route::get('/dashboard', 'DashboardController@index');
 Route::get('/dashboard/offers', 'DashboardController@offers');
-Route::get('/dashboard/profile', 'DashboardController@profile'); //advertiser profile page 
+Route::post('/dashboard/profile', 'DashboardController@profile'); //advertiser profile page 
 
 // Route::resource('advertisement', 'AdvertisementController');
 Route::resource('/dashboard/offers', 'AdvertisementController');

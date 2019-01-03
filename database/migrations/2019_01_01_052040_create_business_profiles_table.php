@@ -15,6 +15,7 @@ class CreateBusinessProfilesTable extends Migration
     {
         Schema::create('business_profiles', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id');
             $table->string('reg_name');
             $table->string('reg_no');
             $table->string('category');
