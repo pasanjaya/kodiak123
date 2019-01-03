@@ -35,7 +35,7 @@ Route::post('/dashboard/profile', 'DashboardController@profile'); //advertiser p
 // Route::resource('advertisement', 'AdvertisementController');
 Route::resource('/dashboard/offers', 'AdvertisementController');
 Route::resource('/dashboard/profile', 'BusinessProfileController');
-
+Route::resource('/superuser/dashboard', 'SuperuserController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
