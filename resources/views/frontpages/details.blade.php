@@ -82,7 +82,7 @@
 						</span>
 
 						<p class="stext-102 cl3 p-t-23">
-							Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.
+							{{$deal->description }}
 						</p>
 						
 						<!--  -->

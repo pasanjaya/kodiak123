@@ -14,7 +14,7 @@ class DealsController extends Controller
      */
     public function index()
     {
-        $deals = Advertisement::inRandomOrder()->take(16)->get();
+        $deals = Advertisement::where('reject_flag', '=', 0)->inRandomOrder()->take(16)->get();
         
         return view('frontpages.deals')->with('deals', $deals);
     }
