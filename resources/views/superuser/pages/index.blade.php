@@ -1,4 +1,4 @@
-@extends('superuser.layouts.superuser_appad')
+@extends('superuser.layouts.superuserAppad')
 
 
 @section('content')
