@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Advertisement;
+use App\User;
 
 class AdvertisementController extends Controller
 {
@@ -36,12 +37,17 @@ class AdvertisementController extends Controller
 
         // $ads = Advertisement::orderBy('updated_at', 'desc')->paginate(2);
 
-        $ads = Advertisement::where('user_id', '=', auth()->user()->id)
+        
+        $user_id = auth()->user()->id;
+        
+        $ads = Advertisement::where('user_id', '=', $user_id)
                             -> orderBy('updated_at', 'desc')->paginate(2);
+
+        $user = User::find($user_id);
 
         // return($ads);
         // return view('/frontpages.index') -> with('ads', $ads);
-        return view('/dashboard.pages.offers') -> with('ads', $ads);
+        return view('/dashboard.pages.offers') -> with('ads', $ads)->with('profile', $user->profile);
     }
 
     /**
@@ -110,9 +116,12 @@ class AdvertisementController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
+    {   
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+
         $ads = Advertisement::find($id);
-        return view('/dashboard.pages.show')->with('ads', $ads);
+        return view('/dashboard.pages.show')->with('ads', $ads)->with('profile', $user->profile);
     }
 
     /**
@@ -123,8 +132,11 @@ class AdvertisementController extends Controller
      */
     public function edit($id)
     {
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+
         $ads = Advertisement::find($id);
-        return view('/dashboard.pages.edit')->with('ads', $ads);
+        return view('/dashboard.pages.edit')->with('ads', $ads)->with('profile', $user->profile);
     }
 
     /**

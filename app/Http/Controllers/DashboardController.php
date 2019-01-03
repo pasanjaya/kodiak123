@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class DashboardController extends Controller
 {
@@ -23,14 +24,22 @@ class DashboardController extends Controller
     // }
 
     public function index(){
-        return view('dashboard.pages.index');
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+        // return($user->profile);
+        return view('dashboard.pages.index')->with('profile', $user->profile);
     }
 
     public function offers(){
-        return view('dashboard.pages.offers');
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id); 
+        return view('dashboard.pages.offers')->with('profile', $user->profile);
     }
 
     public function profile(){
-        return view('dashboard.pages.profile');
+
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id); 
+        return view('dashboard.pages.profile')->with('profile', $user->profile);
     }
 }

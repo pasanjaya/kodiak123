@@ -15,6 +15,7 @@ class DealsController extends Controller
     public function index()
     {
         $deals = Advertisement::inRandomOrder()->take(16)->get();
+        
         return view('frontpages.deals')->with('deals', $deals);
     }
 
