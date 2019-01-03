@@ -23,8 +23,8 @@
 
     </head>
     <body>
-        @include('superuser.inc.superuser_navbar')
-        @include('superuser.inc.superuser_messages')
+        @include('superuser.inc.superuserNavbar')
+        @include('superuser.inc.superuserMessages')
         @yield('content')
     
 
