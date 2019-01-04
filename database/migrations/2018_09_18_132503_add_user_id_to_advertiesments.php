@@ -13,7 +13,7 @@ class AddUserIdToAdvertiesments extends Migration
      */
     public function up()
     {
-        Schema::table('advertisements', function($table){
+        Schema::table('advertisements', function(Blueprint $table){
             $table->integer('user_id');
         });
     }
@@ -25,7 +25,7 @@ class AddUserIdToAdvertiesments extends Migration
      */
     public function down()
     {
-        Schema::table('advertisements', function($table){
+        Schema::table('advertisements', function(Blueprint $table){
             $table->dropColumn('user_id');
         });
     }

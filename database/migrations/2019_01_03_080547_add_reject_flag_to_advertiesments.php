@@ -13,7 +13,7 @@ class AddRejectFlagToAdvertiesments extends Migration
      */
     public function up()
     {
-        Schema::table('advertisements', function($table){
+        Schema::table('advertisements', function(Blueprint $table){
             $table->integer('reject_flag');
         });
     }
@@ -25,7 +25,7 @@ class AddRejectFlagToAdvertiesments extends Migration
      */
     public function down()
     {
-        Schema::table('advertisements', function($table){
+        Schema::table('advertisements', function(Blueprint $table){
             $table->dropColumn('reject_flag');
         });
     }
