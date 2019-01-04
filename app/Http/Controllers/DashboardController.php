@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Advertisement;
+use App\BusinessProfile;
 
 class DashboardController extends Controller
 {
@@ -26,8 +28,21 @@ class DashboardController extends Controller
     public function index(){
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
-        // return($user->profile);
-        return view('dashboard.pages.index')->with('profile', $user->profile);
+
+        $profile = BusinessProfile::where('user_id', '=', $user_id)->take(1)->get(); //get brand view count from db
+        $advs = Advertisement::where('user_id', '=', $user_id); //get advertisments from db
+        $viewCount = Advertisement::where('user_id', '=', $user_id)->sum('view_count'); //get view count from db
+
+        // redirect if profile not created
+        $count = $profile[0]->count();
+        if($count === 0){
+            return redirect()->action('BusinessProfileController@create');
+        }
+        
+        return view('dashboard.pages.index')->with('profile', $user->profile)
+        ->with('brandHits', $profile[0]->brand_hits)
+        ->with('viewCount', $advs->sum('view_count'))
+        ->with('adCount', $advs->count());
     }
 
     public function offers(){

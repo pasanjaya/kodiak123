@@ -105,6 +105,7 @@ class BusinessProfileController extends Controller
         $brand -> url = $request->input('url');
         $brand -> business_email = $request->input('business_email');
         $brand -> inq_mail = $request->input('inq_mail');
+        $brand -> brand_hits = 0;
         $brand -> save();
 
         return redirect('/dashboard')->with('success', 'Registration success!');

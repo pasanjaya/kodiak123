@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Advertisement;
 use App\User;
+use App\AdvertisementView;
 
 class AdvertisementController extends Controller
 {
@@ -118,7 +119,11 @@ class AdvertisementController extends Controller
 
         $ad -> category_id = intval($user->profile->category);
         $ad -> reject_flag = 0;
+        $ad -> verified_adv = 0;
+        $ad -> view_count = 0;
         $ad -> save();
+
+        $adView = new AdvertisementView();
 
         return redirect('/dashboard/offers')->with('success', 'Advertisement post successfully!');
 
@@ -199,6 +204,9 @@ class AdvertisementController extends Controller
         }
         $ad -> start_date = $request->input('start_date');
         $ad -> end_date = $request->input('end_date');
+        $ad -> reject_flag = 0;
+        $ad -> verified_adv = 0;
+        $ad -> view_count = 0;
         $ad -> save();
 
         return redirect('/dashboard/offers')->with('success', 'Advertisement updated successfully!');
