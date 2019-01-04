@@ -7,8 +7,9 @@
             <div class="card border-0 ml-5 mt-5" style="max-width: 50rem;">
                 <img class="card-img-top" src="/storage/misc_images/login_side.jpg" alt="Card image cap" style="opacity: 0.8; filter: alpha(opacity=80);">
                 <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting below as a natural lead-in to additional content.</p>
+                    <h5 class="card-title">Welcome to Kodiak Platform</h5>
+                    <p class="card-text text-muted">If you want to promote your deal: we have login portals for each organization so you can upload the promotions from your side. You have the freedom to choose what to be promoted and the number of dates which the promotion to be on the website.</p>
+                    <p class="card-text text-muted">You can decide the entire marketing campaign.</p>                    
                     {{-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
                 </div>
             </div>

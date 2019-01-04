@@ -38,9 +38,9 @@ class DealsController extends Controller
         $deal -> view_count = $count;
         $deal->save();
 
-        $profile = BusinessProfile::where('user_id', '=', $deal->user_id)->take(1)->get();
-        // return($profile[0]);
-        $count = BusinessProfile::incrementBrandViewCount($profile[0]);
+        $profile = BusinessProfile::where('user_id', '=', $deal->user_id)->take(1)->get(); //get profile details
+
+        $count = BusinessProfile::incrementBrandViewCount($profile[0]); //increment the view count
         $profile[0] -> brand_hits = $count;
         $profile[0] -> save();
 

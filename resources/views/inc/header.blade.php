@@ -38,8 +38,8 @@
                         <a href="/">Home</a>
                     </li>
 
-                    <li class="label1" data-label1="new">
-                        <a href="/deals">Deals</a>
+                    <li>
+                        <a href="/deals">Offers</a>
                     </li>
 
                     <li>
@@ -120,7 +120,7 @@
                 <a href="/">Home</a>
             </li>
 
-            <li class="label1" data-label1="new">
+            <li>
                 <a href="/deals">Deals</a>
             </li>
 
