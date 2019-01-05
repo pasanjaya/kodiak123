@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Advertisement;
+use Carbon\Carbon;
 
 class LandingPageController extends Controller
 {
     public function index(){
         $deals = Advertisement::where('reject_flag', '=', 0)->orderBy('updated_at', 'desc')->take(12)->get();
-        return view('frontpages.index')->with('deals', $deals);
+        $today = Carbon::now()->toDateString();
+        return view('frontpages.index')->with('deals', $deals)->with('today', $today);
     }
 
     public function deals(){

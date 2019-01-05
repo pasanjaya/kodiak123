@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Advertisement;
 use App\AdvertisementView;
 use App\BusinessProfile;
+use Carbon\Carbon;
 
 class DealsController extends Controller
 {
@@ -17,8 +18,10 @@ class DealsController extends Controller
     public function index()
     {
         $deals = Advertisement::where('reject_flag', '=', 0)->inRandomOrder()->take(16)->get();
+
+        $today = Carbon::now()->toDateString();
         
-        return view('frontpages.deals')->with('deals', $deals);
+        return view('frontpages.deals')->with('deals', $deals)->with('today', $today);
     }
 
     
@@ -44,7 +47,9 @@ class DealsController extends Controller
         $profile[0] -> brand_hits = $count;
         $profile[0] -> save();
 
-        return view('frontpages.details')->with('deal', $deal);
+        $today = Carbon::now()->toDateString();
+        // return($today);
+        return view('frontpages.details')->with('today', $today)->with('deal', $deal);
     }
 
     
