@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Advertisement;
+use App\AdvertisementView;
+use App\BusinessProfile;
 
 class DealsController extends Controller
 {
@@ -30,6 +32,17 @@ class DealsController extends Controller
     public function show($id)
     {
         $deal = Advertisement::find($id);
+        
+        // incriment view by one and save back to relation
+        $count = AdvertisementView::incrementViewCount($deal);
+        $deal -> view_count = $count;
+        $deal->save();
+
+        $profile = BusinessProfile::where('user_id', '=', $deal->user_id)->take(1)->get(); //get profile details
+
+        $count = BusinessProfile::incrementBrandViewCount($profile[0]); //increment the view count
+        $profile[0] -> brand_hits = $count;
+        $profile[0] -> save();
 
         return view('frontpages.details')->with('deal', $deal);
     }

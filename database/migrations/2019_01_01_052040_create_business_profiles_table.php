@@ -19,13 +19,13 @@ class CreateBusinessProfilesTable extends Migration
             $table->string('reg_name');
             $table->string('reg_no');
             $table->string('category');
-            $table->string('sub_category');
-            $table->string('about');
+            $table->string('sub_category')->nullable();
+            $table->string('about')->nullable();
             $table->string('image_name');
             $table->string('street');
             $table->string('city');
             $table->string('tel');
-            $table->string('url');
+            $table->string('url')->nullable();
             $table->string('business_email')->unique();
             $table->string('inq_mail')->unique();
             $table->timestamp('email_verified_at')->nullable();

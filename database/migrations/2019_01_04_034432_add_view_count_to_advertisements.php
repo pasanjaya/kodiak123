@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddRejectFlagToAdvertiesments extends Migration
+class AddViewCountToAdvertisements extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddRejectFlagToAdvertiesments extends Migration
     public function up()
     {
         Schema::table('advertisements', function(Blueprint $table){
-            $table->integer('reject_flag');
+            $table->integer('view_count');
         });
     }
 
@@ -26,7 +26,7 @@ class AddRejectFlagToAdvertiesments extends Migration
     public function down()
     {
         Schema::table('advertisements', function(Blueprint $table){
-            $table->dropColumn('reject_flag');
+            $table->dropColumn('view_count');
         });
     }
 }

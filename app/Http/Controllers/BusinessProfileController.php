@@ -62,15 +62,15 @@ class BusinessProfileController extends Controller
     {
         $this -> validate($request, [
             'image_name' => 'image|required|max:1999',
-            'reg_name' => 'required',
-            'reg_no' => 'required',
-            // 'category' => 'required',
+            'reg_name' => 'required|string|unique:business_profiles,reg_name|max:255',
+            'reg_no' => 'required|string|unique:business_profiles,reg_no|max:255',
+            'category' => 'required',
             // 'sub_category' => 'required',
-            'street' => 'required',
-            'city' => 'required',
+            'street' => 'required|max:255',
+            'city' => 'required|max:255',
             'tel' => 'required',
-            'business_email' => 'required',
-            'inq_mail' => 'required'
+            'business_email' => 'required|email|unique:business_profiles,business_email',
+            'inq_mail' => 'required|email|unique:business_profiles,inq_mail'
         ]);
         
         //image upload
@@ -105,6 +105,7 @@ class BusinessProfileController extends Controller
         $brand -> url = $request->input('url');
         $brand -> business_email = $request->input('business_email');
         $brand -> inq_mail = $request->input('inq_mail');
+        $brand -> brand_hits = 0;
         $brand -> save();
 
         return redirect('/dashboard')->with('success', 'Registration success!');
