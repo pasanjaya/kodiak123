@@ -46,14 +46,14 @@
                       </li>
                           
                       </a>
-                    <!-- </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="/dashboard/messages">
-                        <span data-feather="message-circle"></span>
-                        Messages
-                      </a>
                     </li>
                     <li class="nav-item">
+                      <a class="nav-link" href="/superuser/email">
+                        <span data-feather="plus"></span>
+                         Send notification email 
+                      </a>
+                    </li>
+                    <!--li class="nav-item">
                       <a class="nav-link" href="/dashboard/reports">
                         <span data-feather="bar-chart-2"></span>
                         Reports
