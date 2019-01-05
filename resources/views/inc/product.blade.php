@@ -52,24 +52,29 @@
 
         <div class="row isotope-grid">
             @foreach ($deals as $deal)
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item products{{$deal->category_id}}">
+            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item products{{$deal->category_id}} align-text-center">
                     <!-- Block2 -->
+                            
                     <div class="block2">
+                            @if($today > $deal->end_date)
+                                <span class="label1" data-label1="Unavailable"></span>
+                            @endif
                         <div class="block2-pic hov-img0">
-                            <a href="details/{{$deal->id}}">
-                                <img src="/storage/advertisement_images/{{$deal->image_name}}" alt="IMG-PRODUCT">
+                                
+                            <a href="details/{{ $deal->id }}">
+                                <img src="/storage/advertisement_images/{{$deal->image_name}}" alt="IMG-PRODUCT">                               
                             </a>
                             
                         </div>
     
                         <div class="block2-txt flex-w flex-t p-t-14">
                             <div class="block2-txt-child1 flex-col-l ">
-                                <a href="details/{{$deal->id}}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                   {{$deal->title}}
+                                <a href="details/{{ $deal->id }}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                   {{ $deal->title }}
                                 </a>
     
                                 <span class="stext-105 cl3">
-                                    Ends: {{$deal->end_date}}
+                                    Ends: {{ $deal->end_date }}
                                 </span>
                             </div>
     

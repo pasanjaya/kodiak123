@@ -61,7 +61,7 @@ class BusinessProfileController extends Controller
     public function store(Request $request)
     {
         $this -> validate($request, [
-            'image_name' => 'image|required|max:1999',
+            'image_name' => 'image|max:1999',
             'reg_name' => 'required|string|unique:business_profiles,reg_name|max:255',
             'reg_no' => 'required|string|unique:business_profiles,reg_no|max:255',
             'category' => 'required',

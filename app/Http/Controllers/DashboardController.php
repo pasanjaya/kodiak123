@@ -33,14 +33,18 @@ class DashboardController extends Controller
         $advs = Advertisement::where('user_id', '=', $user_id); //get advertisments from db
         $viewCount = Advertisement::where('user_id', '=', $user_id)->sum('view_count'); //get view count from db
 
-        // redirect if profile not created
-        $count = $profile[0]->count();
-        if($count === 0){
+        if(is_null($user->profile)) {
             return redirect()->action('BusinessProfileController@create');
         }
+
+        // redirect if profile not created
+        // $count = $profile->count();
+        // if($count === 0){
+        //     return redirect()->action('BusinessProfileController@create');
+        // }
         
         return view('dashboard.pages.index')->with('profile', $user->profile)
-        ->with('brandHits', $profile[0]->brand_hits)
+        ->with('brandHits', $user->profile->brand_hits)
         ->with('viewCount', $advs->sum('view_count'))
         ->with('adCount', $advs->count());
     }
