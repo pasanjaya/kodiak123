@@ -21,29 +21,25 @@
                     <div class="row">
                         @foreach ($ads as $ad)
                             <div class="card border-primary mt-5 mb-4 mr-5 ml-5 float-left" style="max-width: 35rem;">
-                                <div class="card-header">ID: {{$ad->id}}
+                                <div class="card-header">
+                                    <div class="d-flex">
+                                        <div class="d-flex justify-content-start">
+                                            ID: {{$ad->id}}
+                                        </div>
+                                        <div class="d-flex justify-content-end">
+                                            <form action="{{ url('/dashboard/verifyAd/verify')}}" method="post">
+                                                <input type="hidden" name="_token" value="{{ Session::token() }}">
+                                                <input type="hidden" name="id" value="{{ $ad->id }}">
+                                                <input type="submit" class="btn btn-sm btn-primary mr-2" value="Verify">
+                                            </form>
 
-                                <form action="{{ url('/dashboard/verifyAd/verify')}}" method="post">
-                                <input type="hidden" name="_token" value="{{Session::token()}}">
-                                <input type="hidden" name="id" value="{{$ad->id }}">
-                                <input type="submit" value="Verify">
-                                </form>
-
-                                <form action="{{ url('/dashboard/verifyAd/reject')}}" method="post">
-                                    <input type="hidden" name="_token" value="{{Session::token()}}">
-                                    <input type="hidden" name="id" value="{{$ad->id }}">
-                                    <input type="submit" value="Reject">
-                                    </form>
-
-                                    {{-- {!! Form::open(['action' => ['SuperuserAdvertisementController@reject', $ad->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
-                                        {{Form::hidden('_method', 'PUT')}}
-                                        {{Form::submit('Reject', ['class' => 'btn btn-sm btn-danger ml-3 float-right'])}}
-                                    {!!Form::close()!!} --}}
-
-                                    {{-- {!! Form::open(['action' => ['SuperuserAdvertisementController@verify', $ad->id], 'method' => 'POST', 'class'=>'confirm_verified']) !!}
-                                        {{Form::hidden('_method', 'PUT')}}
-                                        {{Form::submit('Verify', ['class'=> 'btn btn-sm btn-primary ml-3 float-right'])}}
-                                    {!! Form::close() !!}                              --}}
+                                            <form action="{{ url('/dashboard/verifyAd/reject')}}" method="post">
+                                                <input type="hidden" name="_token" value="{{ Session::token() }}">
+                                                <input type="hidden" name="id" value="{{ $ad->id }}">
+                                                <input type="submit" class="btn btn-sm btn-danger" value="Reject">
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="card-body text-primary">
                                     <img class="card-img-top w-25 mr-5 float-left" src="/storage/advertisement_images/{{$ad->image_name}}" alt="ad image">

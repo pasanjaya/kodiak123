@@ -16,8 +16,8 @@
                     Advertiser
                 </a>
 
-                <a href="#" class="flex-c-m trans-04 p-lr-25">
-                    LKR
+                <a href="/superuser/dashboard" class="flex-c-m trans-04 p-lr-25">
+                    CPanel
                 </a>
             </div>
         </div>
@@ -109,7 +109,7 @@
                     </a>
 
                     <a href="#" class="flex-c-m p-lr-10 trans-04">
-                        LKR
+                        CPanel
                     </a>
                 </div>
             </li>

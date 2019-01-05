@@ -8,16 +8,20 @@
                     <div class="row">
                         @foreach ($ads as $ad)
                             <div class="card border-primary mt-5 mb-4 mr-5 ml-5 float-left" style="min-width:20rem; max-width: 30rem; max-height:20rem">
-                                <div class="card-header">ID: {{ $ad->id }} 
-                                    {!!Form::open(['action' => ['AdvertisementController@destroy', $ad->id], 'method' => 'POST', 'class'=>'confirm_delete'])!!}
-                                        {{Form::hidden('_method', 'DELETE')}}
-                                        {{Form::submit('Delete', ['class'=> 'btn btn-sm btn-danger ml-3 float-right'])}}
-                                    {!!Form::close()!!}                            
+                                <div class="card-header" style="height:75px;">ID: {{ $ad->id }}
+
+                                    {!! Form::open(['action' => ['AdvertisementController@destroy', $ad->id], 'method' => 'POST', 'class'=>'confirm_delete']) !!}
+                                        {{ Form::hidden('_method', 'DELETE')}}
+                                        {{ Form::submit('Delete', ['class'=> 'btn btn-sm btn-danger ml-3 float-right']) }}
+                                    {!! Form::close() !!}                            
                                 </div>
                                 <div class="card-body text-primary">
                                     <img class="card-img-top w-25 mr-5 float-left" style="max-height:13rem" src="/storage/advertisement_images/{{$ad->image_name}}" alt="ad image">
                                     <h5 class="card-title"><a href="offers/{{ $ad->id }}">{{ $ad->title }}</a></h5>
-                                    <p class="card-text">{{ $ad->created_at }}</p>
+                                    <h6 class="card-text"><span class="text-secondary">Created at: </span>{{ $ad->created_at }}</h6>
+                                        @if($today > $ad->end_date)
+                                            <span class="text-danger">Expired Offer</span>
+                                        @endif
                                 </div>                           
                             </div>
                         @endforeach
@@ -40,7 +44,7 @@
                         <div class="row">
                             @foreach ($rejects as $reject)
                                 <div class="card border-danger mt-5 mb-4 mr-5 ml-5 float-left" style="min-width:20rem; max-width: 30rem; max-height:20rem">
-                                    <div class="card-header alert-danger">ID: {{$reject->id}}
+                                    <div class="card-header alert-danger" style="height:75px;">ID: {{$reject->id}}
                                         {!!Form::open(['action' => ['AdvertisementController@destroy', $reject->id], 'method' => 'POST', 'class'=>'confirm_delete'])!!}
                                             {{Form::hidden('_method', 'DELETE')}}
                                             {{Form::submit('Delete', ['class'=> 'btn btn-sm btn-danger ml-3 float-right'])}}
@@ -49,7 +53,10 @@
                                     <div class="card-body text-primary">
                                         <img class="card-img-top w-25 mr-5 float-left" src="/storage/advertisement_images/{{$reject->image_name}}" alt="ad image">
                                         <h5 class="card-title"><a href="offers/{{$reject->id}}">{{ $reject->title }}</a></h5>
-                                        <p class="card-text">{{ $reject->created_at }}</p>
+                                        <h6 class="card-text"><span class="text-secondary">Created at: </span>{{ $reject->created_at }}</h6>
+                                            @if($today > $ad->end_date)
+                                                <span class="text-danger">Expired Offer</span>
+                                            @endif
                                     </div>                           
                                 </div>
                             @endforeach
