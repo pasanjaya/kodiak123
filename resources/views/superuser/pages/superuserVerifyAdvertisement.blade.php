@@ -2,7 +2,7 @@
 
 @section('content')
 
-            <div class="jumbotron text-right" style="min-height: 14rem">
+            <!-- <div class="jumbotron text-right" style="min-height: 14rem">
                 <div class="logo">
                     <img src="/storage/brand_logos/noLogo.png" style="height: 100%; width: 100%;" alt="logo">
                 </div>
@@ -14,18 +14,36 @@
                 </p> 
 
                 
-            </div>
+            </div> -->
             <div class="mt-5">
-                <h3>Published Offers</h3>
+                <h3>Unverified offers</h3>
                 @if(count($ads) > 0)
                     <div class="row">
                         @foreach ($ads as $ad)
                             <div class="card border-primary mt-5 mb-4 mr-5 ml-5 float-left" style="max-width: 35rem;">
-                                <div class="card-header">ID: {{$ad->id}} 
-                                    {!!Form::open(['action' => ['AdvertisementController@destroy', $ad->id], 'method' => 'POST', 'class'=>'confirm_delete'])!!}
-                                        {{Form::hidden('_method', 'DELETE')}}
-                                        {{Form::submit('Delete', ['class'=> 'btn btn-sm btn-danger ml-3 float-right'])}}
-                                    {!!Form::close()!!}                            
+                                <div class="card-header">ID: {{$ad->id}}
+
+                                <form action="{{ url('/dashboard/verifyAd/verify')}}" method="post">
+                                <input type="hidden" name="_token" value="{{Session::token()}}">
+                                <input type="hidden" name="id" value="{{$ad->id }}">
+                                <input type="submit" value="Verify">
+                                </form>
+
+                                <form action="{{ url('/dashboard/verifyAd/reject')}}" method="post">
+                                    <input type="hidden" name="_token" value="{{Session::token()}}">
+                                    <input type="hidden" name="id" value="{{$ad->id }}">
+                                    <input type="submit" value="Reject">
+                                    </form>
+
+                                    {{-- {!! Form::open(['action' => ['SuperuserAdvertisementController@reject', $ad->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+                                        {{Form::hidden('_method', 'PUT')}}
+                                        {{Form::submit('Reject', ['class' => 'btn btn-sm btn-danger ml-3 float-right'])}}
+                                    {!!Form::close()!!} --}}
+
+                                    {{-- {!! Form::open(['action' => ['SuperuserAdvertisementController@verify', $ad->id], 'method' => 'POST', 'class'=>'confirm_verified']) !!}
+                                        {{Form::hidden('_method', 'PUT')}}
+                                        {{Form::submit('Verify', ['class'=> 'btn btn-sm btn-primary ml-3 float-right'])}}
+                                    {!! Form::close() !!}                              --}}
                                 </div>
                                 <div class="card-body text-primary">
                                     <img class="card-img-top w-25 mr-5 float-left" src="/storage/advertisement_images/{{$ad->image_name}}" alt="ad image">
@@ -46,7 +64,6 @@
                     <p>No offer created yet !</p>
                 @endif
             </div>
-            <a href="offers/create" class="float"><span class="my-float" data-feather="plus"></span></a>
             </main>
         </div>
     </div>
