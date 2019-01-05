@@ -24,33 +24,36 @@
                           <span class="sr-only">(current)</span>
                         </a>
                         <span class="h6 ml-4 d-block font-italic text-secondary">"sdsf"</span>
-                      </li>
+                    </li>
+
                     <li class="nav-item mt-2">
                       <a class="nav-link" href="/superuser/dashboard">
                         <span data-feather="home"></span>
                         Dashboard <span class="sr-only">(current)</span>
                       </a>
                     </li>
+
                     <li class="nav-item">
                       <a class="nav-link" href="/dashboard/verifyAd">
                         <span data-feather="plus"></span>
                         Verify Advertisement
-                    </li>
-                          
                       </a>
                     </li>
+
                     <li class="nav-item">
                       <a class="nav-link" href="/dashboard/removeAd">
                         <span data-feather="plus"></span>
                          Remove Advertisement
                       </a>
-                    <!-- </li>
-                    <li class="nav-item">
+                    </li>
+
+                    {{-- <li class="nav-item">
                       <a class="nav-link" href="/dashboard/reports">
                         <span data-feather="bar-chart-2"></span>
                         Reports
                       </a>
-                    </li> --> -->
+                    </li> --}}
+
                   </ul>
     
               {{-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
