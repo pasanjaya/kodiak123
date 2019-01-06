@@ -55,7 +55,10 @@ class AdvertisementController extends Controller
 
         // return($ads);
         // return view('/frontpages.index') -> with('ads', $ads);
-        return view('/dashboard.pages.offers') ->with('ads', $ads)->with('rejects', $rejectads)->with('profile', $user->profile);
+        return view('/dashboard.pages.offers')->with('ads', $ads)
+                                        ->with('rejects', $rejectads)
+                                        ->with('today', $today)
+                                        ->with('profile', $user->profile);
     }
 
     /**

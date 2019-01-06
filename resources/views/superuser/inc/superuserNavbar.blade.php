@@ -15,12 +15,12 @@
             <div class="sidebar-sticky">
                 <ul class="nav flex-column mt-4">
                     <li class="nav-item mb-2">
-                        <a class="nav-link" href="/dashboard/profile">
+                        <a class="nav-link" href="#">
                           <img src="/svg/man.svg" alt="im_advertiser" class="rounded-circle border border-dark mr-2" style="width:60px; height:60px;">
-                          Superuser <span data-feather="edit"></span>
+                          Admin <span data-feather="edit"></span>
                           <span class="sr-only">(current)</span>
                         </a>
-                        <span class="h6 ml-4 d-block font-italic text-secondary">"sdsf"</span>
+                        <span class="h6 ml-4 d-block font-italic text-secondary">kodiakmailservice@gmail.com</span>
                     </li>
 
                     <li class="nav-item mt-2">
@@ -33,27 +33,16 @@
                     <li class="nav-item">
                       <a class="nav-link" href="/dashboard/verifyAd">
                         <span data-feather="plus"></span>
-                        Verify Advertisement
+                        Review Advertisements
                       </a>
                     </li>
                     
                     <li class="nav-item">
                       <a class="nav-link" href="/superuser/email">
-                        <span data-feather="plus"></span>
-                          Send Notification
+                        <span data-feather="mail"></span>
+                          Send Messages
                       </a>
                     </li>
-
-<<<<<<< HEAD
-=======
-                    {{-- <li class="nav-item">
-                      <a class="nav-link" href="/dashboard/reports">
-                        <span data-feather="bar-chart-2"></span>
-                        Reports
-                      </a>
-                    </li> --}}
-
->>>>>>> upstream/master
                   </ul>
     
               

@@ -18,7 +18,7 @@
                                         </div>
                                     </div>
                                     <div class="card-body text-primary">
-                                        <img class="card-img-top w-25 mr-5 float-left" style="max-height:13rem" src="/storage/advertisement_images/{{$ad->image_name}}" alt="ad image">
+                                        <img class="card-img-top w-25 mr-5 float-left" style="max-height:10rem" src="/storage/advertisement_images/{{$ad->image_name}}" alt="ad image">
                                         <h5 class="card-title">{{$ad->title}}</h5>
                                         <p class="card-text">{{$ad->created_at}}</p>
                                     </div>                           
