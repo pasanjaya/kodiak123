@@ -13,10 +13,10 @@
                     <a href="/dashboard/profile" class="btn btn-dark btn-lg mt-3" role="button">Edit Profile</a>
                 </p>
             </div>
-            <div class="d-flex flex-column mb-3">
-                <div class="p-2 ">{{ $profile->reg_name }}</div>
-                <div class="p-2 text-capitalize">{{ $profile->street }}, {{ $profile->city }}</div>
-                <div class="p-2 ">{{ $profile->tel}}</div>
+            <div class="d-flex flex-column mt-5">
+                <div class="p-2 text-white"><span data-feather="shopping-bag"></span> {{ $profile->reg_name }}</div>
+                <div class="p-2 text-white text-capitalize"><span data-feather="map-pin"></span> {{ $profile->street }}, {{ $profile->city }}</div>
+                <div class="p-2 text-white "><span data-feather="phone"></span> +{{ $profile->tel}}</div>
             </div>
         </div>
     </div>
