@@ -34,11 +34,13 @@ Route::post('/dashboard/profile', 'DashboardController@profile'); //advertiser p
 Route::post('/dashboard/verifyAd/verify','SuperuserAdvertisementController@verify');
 Route::get('/dashboard/verifyAd/reject','SuperuserAdvertisementController@reject');
 
+
 // Route::resource('advertisement', 'AdvertisementController');
 Route::resource('/dashboard/offers', 'AdvertisementController');
 Route::resource('/dashboard/profile', 'BusinessProfileController');
 Route::resource('/superuser/dashboard', 'SuperuserController');
 Route::resource('/dashboard/verifyAd', 'SuperuserAdvertisementController');
+Route::resource('/dashboard/packeges', 'PackageController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

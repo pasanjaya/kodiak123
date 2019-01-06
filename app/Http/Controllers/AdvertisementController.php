@@ -118,7 +118,7 @@ class AdvertisementController extends Controller
         $ad -> end_date = $request->input('end_date');
         $ad -> user_id = auth()->user()->id;
 
-        // get category id form business profilr
+        // get category id form business profile
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
 

@@ -7,14 +7,14 @@
             <h3>Business Profile Create</h3>
         </div>
         <div class="card-body">
-                <div class="alert alert-danger">{{ $errors }}</div>
+                <div class="alert alert-warning">Please create a profile first</div>
             {!! Form::open(['action' => 'BusinessProfileController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
                 <div class="row justify-content-center">
                     <div class="col-md-6 my-auto">
                         <div class="card border-0 card-block d-flex">
                             <div class="card-body">
                                 <div class="row justify-content-center mb-4">
-                                    <img src="/svg/man.svg" alt="im_advertiser" class="rounded-circle border border-dark mr-2" style="width:120px; height:120px;">
+                                    <img src="/storage/brand_logos/nopic.jpg" alt="im_advertiser" class="rounded-circle border border-dark mr-2" style="width:120px; height:120px;">
                                 </div>
 
                                 <div class="form-group">
@@ -133,7 +133,7 @@
                 <div class="form-group row">
                     {{ Form::label('tel', 'Telephone No. *', ['class' => 'col-sm-2 col-form-label']) }}
                     <div class="col-sm-10">
-                        {{ Form::text('tel', '', ['class' => 'form-control'.($errors->has('tel') ? ' is-invalid' : ''), 'placeholder' => '011 123 4567']) }}
+                        {{ Form::text('tel', '', ['class' => 'form-control'.($errors->has('tel') ? ' is-invalid' : ''), 'placeholder' => '94111234567']) }}
 
                         @if ($errors->has('tel'))
                             <span class="invalid-feedback" role="alert">
@@ -171,6 +171,7 @@
 
                     </div>
                 </div>
+
                 <div class="form-group row">
                     {{ Form::label('inq_mail', 'Inquiry Email *', ['class' => 'col-sm-2 col-form-label']) }}
                     <div class="col-sm-10">
@@ -184,6 +185,7 @@
 
                     </div>
                 </div>
+
                 <div class="form-group row justify-content-center">
                     {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
                 </div>

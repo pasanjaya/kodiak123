@@ -31,7 +31,7 @@ class DashboardController extends Controller
 
         $profile = BusinessProfile::where('user_id', '=', $user_id)->take(1)->get(); //get brand view count from db
         $advs = Advertisement::where('user_id', '=', $user_id); //get advertisments from db
-        $viewCount = Advertisement::where('user_id', '=', $user_id)->sum('view_count'); //get view count from db
+
 
         if(is_null($user->profile)) {
             return redirect()->action('BusinessProfileController@create');
@@ -44,6 +44,7 @@ class DashboardController extends Controller
         // }
         
         return view('dashboard.pages.index')->with('profile', $user->profile)
+        ->with('subscribers', $user->profile->subscribe_count)
         ->with('brandHits', $user->profile->brand_hits)
         ->with('viewCount', $advs->sum('view_count'))
         ->with('adCount', $advs->count());
