@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Advertisement;
+use App\SuperuserAdvertisement;
 use App\User;
 
 
@@ -61,15 +62,28 @@ class SuperuserAdvertisementController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
         // $user_id = auth()->user()->id;
         // $user = User::find($user_id);
-
-        // $ads = Advertisement::find($id);
+        $id=$request->id;
+        $ads = Advertisement::find($id);
+        //dd($ads);
         // return view('/dashboard.pages.show')->with('ads', $ads)->with('profile', $user->profile);
-        //
+        return view('/superuser.pages.superuserAdvertisementshow',compact('ads'));
+        
     }
+
+    // public function shows($id)
+    // {
+    //     // $user_id = auth()->user()->id;
+    //     // $user = User::find($user_id);
+
+    //     $ads = Advertisement::find($id);
+    //     // return view('/dashboard.pages.show')->with('ads', $ads)->with('profile', $user->profile);
+        
+    //     return view('/superuser.pages.superuserAdvertisementshow');
+    // }
 
     /**
      * Show the form for editing the specified resource.

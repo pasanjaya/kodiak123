@@ -27,17 +27,17 @@
                                             ID: {{$ad->id}}
                                         </div>
                                         <div class="d-flex justify-content-end">
-                                            <form action="{{ url('/dashboard/verifyAd/verify')}}" method="post">
+                                            <form action="{{ url('/dashboard/verifyAd/show')}}" method="post">
                                                 <input type="hidden" name="_token" value="{{ Session::token() }}">
                                                 <input type="hidden" name="id" value="{{ $ad->id }}">
-                                                <input type="submit" class="btn btn-sm btn-primary mr-2" value="Verify">
+                                                <input type="submit" class="btn btn-sm btn-primary mr-2" value="Show">
                                             </form>
 
-                                            <form action="{{ url('/dashboard/verifyAd/reject')}}" method="post">
+                                            {{-- <form action="{{ url('/dashboard/verifyAd/reject')}}" method="post">
                                                 <input type="hidden" name="_token" value="{{ Session::token() }}">
                                                 <input type="hidden" name="id" value="{{ $ad->id }}">
                                                 <input type="submit" class="btn btn-sm btn-danger" value="Reject">
-                                            </form>
+                                            </form> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -63,7 +63,7 @@
             </main>
         </div>
     </div>
-
+{{-- 
     <script>
         $(document).ready(function(){
             $( ".confirm_delete" ).submit(function( event ) {
@@ -88,6 +88,6 @@
                 });
             });
         });
-</script>  
+</script>   --}}
 
 @endsection

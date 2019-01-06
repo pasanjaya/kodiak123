@@ -41,8 +41,7 @@ class AdvertisementController extends Controller
 
         
         $user_id = auth()->user()->id;
-        $today = Carbon::today()->toDateString();
-
+        
         $ads = Advertisement::where('user_id', '=', $user_id)
                                 ->where('reject_flag', '=', 0)
                                 -> orderBy('updated_at', 'desc')->paginate(2);
@@ -55,10 +54,7 @@ class AdvertisementController extends Controller
 
         // return($ads);
         // return view('/frontpages.index') -> with('ads', $ads);
-        return view('/dashboard.pages.offers') ->with('ads', $ads)
-                            ->with('rejects', $rejectads)
-                            ->with('today', $today)
-                            ->with('profile', $user->profile);
+        return view('/dashboard.pages.offers') ->with('ads', $ads)->with('rejects', $rejectads)->with('profile', $user->profile);
     }
 
     /**
@@ -142,11 +138,11 @@ class AdvertisementController extends Controller
      */
     public function show($id)
     {   
-        $user_id = auth()->user()->id;
-        $user = User::find($user_id);
+         $user_id = auth()->user()->id;
+         $user = User::find($user_id);
 
-        $ads = Advertisement::find($id);
-        return view('/dashboard.pages.show')->with('ads', $ads)->with('profile', $user->profile);
+         $ads = Advertisement::find($id);
+         return view('/dashboard.pages.show')->with('ads', $ads)->with('profile', $user->profile);
     }
 
     /**
