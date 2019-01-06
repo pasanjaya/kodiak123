@@ -62,4 +62,10 @@ Route::get('superuser/email', function () {
 
 Route::post('superuser/send', 'MailController@send');
 
+//Route::get('superuser/dashboards', 'GraphController@index1');
+Route::get('superuser/dashboard', 'GraphController@index');
+
+
+
+
 

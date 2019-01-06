@@ -11,6 +11,7 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     </head>
     <body>
+         @include ('superuser.layouts.superuserAppad')
         <div class="container" style="margin-top: 100px; width: 600px;">
             <h2 class="text-center">Send notification email to advertisers</h2><br><br>
             @if(session('success'))
@@ -34,8 +35,10 @@
             <form action="send" method="POST">
                 {{ csrf_field() }}
                 <div class="form-group">
-                    <input type="email" class="form-control text-center" placeholder="Provide an email" name="email"><br>
-                    <input type="text" class="form-control text-center" placeholder="compose mail" name="composeemail"><br>
+                    <label for="email">Email </label>
+                    <input type="email" class="form-control " placeholder="Provide an email" name="email"><br>
+                    <label for="textarea">Description </label>
+                    <textarea class="form-control " placeholder="compose mail" name="composeemail" ></textarea><br>
                     <button type="submit" class="btn btn-primary btn-md" style="margin-left: 0px;margin: auto; display: block;"t>SEND</button>
                 </div>
             </form>
