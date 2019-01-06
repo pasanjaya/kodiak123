@@ -51,6 +51,7 @@ class AdvertisementController extends Controller
                             -> orderBy('updated_at', 'desc')->paginate(2);
 
         $user = User::find($user_id);
+        $today = Carbon::now()->toDateString();
 
         // return($ads);
         // return view('/frontpages.index') -> with('ads', $ads);

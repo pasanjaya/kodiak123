@@ -2,13 +2,16 @@
 
 @section('content')
             <div class="container">
+
                 {{-- show the Unverified offers with the verified reject submit button  --}}
+
                  <div class="card bg-light border-info mb-3" style="max-width: 100rem;"> 
                     <div class="card-header h3">{{$ads->title}}</div>
                     <img class="card-img-top w-100" src="/storage/advertisement_images/{{$ads->image_name}}" alt="ad image">
                     <div class="card-body">
                     <h5 class="card-title h4">{{$ads->start_date}} to {{$ads->end_date}}</h5>
                     <p class="card-text">{!!$ads->description!!}</p>
+
 
                     <div class="d-flex justify-content-end">
                         <form action="{{ url('/dashboard/verifyAd/verify')}}" class="confirm_verify" method="post">
@@ -23,6 +26,7 @@
                             <input type="submit" class="btn btn-danger" value="Reject">
                         </form>
                     </div>
+
 
                     </div>
                     <div class="card-footer bg-light border-default">tags: {{$ads->tags}}</div>
