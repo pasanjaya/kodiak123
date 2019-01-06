@@ -132,9 +132,12 @@ class SuperuserAdvertisementController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function reject(Request $request, $id)
+    public function reject(Request $request)
     {
-        $adv = Advertisement::find($id);
+        $adv = Advertisement::find($request->id);
+        $adv->reject_flag = 1;
+        $adv->save();
+        return redirect('/dashboard/verifyAd'); 
         
         
     }
