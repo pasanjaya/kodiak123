@@ -28,6 +28,8 @@ Route::post('/dashboard/profile', 'DashboardController@profile'); //advertiser p
 Route::resource('/dashboard/offers', 'AdvertisementController');
 Route::resource('/dashboard/profile', 'BusinessProfileController');
 Route::resource('/dashboard/packeges', 'PackageController');
+Route::resource('/dashboard/messages', 'MessagesController');
+
 Auth::routes();
 
 
