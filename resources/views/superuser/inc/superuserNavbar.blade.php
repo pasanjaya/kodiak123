@@ -39,7 +39,7 @@
                         Verify Advertisement
                       </a>
                     </li>
-
+                    
                     <li class="nav-item">
                       <a class="nav-link" href="/dashboard/removeAd">
                         <span data-feather="plus"></span>
