@@ -26,8 +26,8 @@ class CreateBusinessProfilesTable extends Migration
             $table->string('city');
             $table->string('tel');
             $table->string('url')->nullable();
-            $table->string('business_email')->unique();
-            $table->string('inq_mail')->unique();
+            $table->string('business_email');
+            $table->string('inq_mail');
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();
         });

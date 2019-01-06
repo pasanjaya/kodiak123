@@ -69,7 +69,7 @@
                         
                     @endif
                 </div>
-            <a href="offers/create" class="float"><span class="my-float" data-feather="plus"></span></a>
+            <a href="/dashboard/packeges" class="float"><span class="my-float" data-feather="plus"></span></a>
             </main>
         </div>
     </div>
