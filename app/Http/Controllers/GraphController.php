@@ -9,13 +9,13 @@ class GraphController extends Controller
 {
     function index()
     {
-        $data = DB::table('Advertisements')
+        $data = DB::table('advertisements')
         ->select(
          DB::raw('category_id as category_id'),
          DB::raw('count(*) as number'))
         ->groupBy('category_id')
         ->get();
-        $lable = DB::table('Advertiesment_categories')
+        $lable = DB::table('advertiesment_categories')
         ->select(
          DB::raw('category_name as category_name'))
          ->get();
@@ -44,7 +44,7 @@ class GraphController extends Controller
              $count1++;
         }
 
-        $titles = DB::table('Users')->pluck('name');
+        $titles = DB::table('users')->pluck('name');
         $count2=0;
         foreach ($titles as $title) {
              $count2++;

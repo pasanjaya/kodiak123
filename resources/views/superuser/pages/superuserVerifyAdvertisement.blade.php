@@ -22,7 +22,7 @@
                         @foreach ($ads as $ad)
 
                             <a href="/dashboard/verifyAd/{{$ad->id}}">
-                                <div class="card border-primary mt-5 mb-4 mr-5 ml-5 float-left" style="max-width: 35rem;">
+                                <div class="card border-primary mt-5 mb-4 mr-5 ml-5 float-left" style="min-width:20rem; max-width: 30rem; max-height:20rem">
                                     <div class="card-header">
                                         <div class="d-flex">
                                             <div class="d-flex justify-content-start">
@@ -31,7 +31,7 @@
                                         </div>
                                     </div>
                                     <div class="card-body text-primary">
-                                        <img class="card-img-top w-25 mr-5 float-left" src="/storage/advertisement_images/{{$ad->image_name}}" alt="ad image">
+                                        <img class="card-img-top w-25 mr-5 float-left" style="max-height:13rem" src="/storage/advertisement_images/{{$ad->image_name}}" alt="ad image">
                                         <h5 class="card-title">{{$ad->title}}</h5>
                                         <p class="card-text">{{$ad->created_at}}</p>
                                     </div>                           

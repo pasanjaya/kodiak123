@@ -54,11 +54,7 @@
 					
 				<div class="col-md-6 col-lg-5 p-b-30">
 					<div class="p-r-50 p-t-5 p-lr-0-lg">
-							<span class="mtext-106 cl2">
-									@if($today > $deal->end_date)
-										<span class="label1" data-label1="Unavailable"></span>
-									@endif
-							</span>
+							
 						<h3 class="mtext-105 cl2 js-name-detail p-b-3">
 							{{$deal->title}}
 						</h3>
@@ -74,28 +70,15 @@
 						<p class="stext-102 cl3 p-t-23">
 							{!! $deal->description !!}
 						</p>
-						
-						
+	
 
 						<!--  -->
 						<div class="flex-w flex-m p-l-100 p-t-40 respon7">
-							<div class="flex-m bor9 p-r-10 m-r-11">
-								<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="Add to Wishlist">
-									<i class="zmdi zmdi-favorite"></i>
-								</a>
-							</div>
-
-							<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Facebook">
-								<i class="fa fa-facebook"></i>
-							</a>
-
-							<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Twitter">
-								<i class="fa fa-twitter"></i>
-							</a>
-
-							<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Google Plus">
-								<i class="fa fa-google-plus"></i>
-							</a>
+								<span class="mtext-106 cl2">
+										@if($today > $deal->end_date)
+											<span class="label1" data-label1="Unavailable"></span>
+										@endif
+								</span>
 						</div>
 					</div>
 				</div>
