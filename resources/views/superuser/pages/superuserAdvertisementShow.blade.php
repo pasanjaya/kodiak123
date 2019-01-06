@@ -1,16 +1,16 @@
-@extends('layouts.appad')
+@extends('superuser.layouts.superuserAppad')
 
 @section('content')
             <div class="container">
                 
-                {{-- <a href="/offers/{{$ads->id}}/" class="btn btn-danger ml-3 mt-3 float-right">Delete</a> --}}
-                {!!Form::open(['action' => ['AdvertisementController@destroy', $ads->id], 'method' => 'POST', 'class'=>'confirm_delete'])!!}
+                <a href="/dashboard/verifyAd/show/{{$ads->id}}/" class="btn btn-danger ml-3 mt-3 float-right" >Reject</a>
+                {{-- {!!Form::open(['action' => ['AdvertisementController@destroy', $ads->id], 'method' => 'POST', 'class'=>'confirm_delete'])!!}
                     {{Form::hidden('_method', 'DELETE')}}
                     {{Form::submit('Delete', ['class'=> 'btn btn-danger ml-3 mt-3 float-right'])}}
-                {!!Form::close()!!}
-                <a href="/dashboard/offers/{{$ads->id}}/edit" class="btn btn-primary ml-3 mt-3 float-right">Update</a>
-                
-                <div class="card bg-light border-info mb-3" style="max-width: 100rem;">
+                {!!Form::close()!!} --}}
+                <a href="/dashboard/verifyAd/show/{{$ads->id}}/" class="btn btn-primary ml-3 mt-3 float-right">Verify</a>
+                 
+                 <div class="card bg-light border-info mb-3" style="max-width: 100rem;"> 
                     <div class="card-header h3">{{$ads->title}}</div>
                     <img class="card-img-top w-100" src="/storage/advertisement_images/{{$ads->image_name}}" alt="ad image">
                     <div class="card-body">
@@ -18,7 +18,7 @@
                     <p class="card-text">{!!$ads->description!!}</p>
                     </div>
                     <div class="card-footer bg-light border-default">tags: {{$ads->tags}}</div>
-                </div>
+                </div> 
             </div>
 
             </main>
