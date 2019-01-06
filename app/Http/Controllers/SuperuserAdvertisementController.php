@@ -62,15 +62,15 @@ class SuperuserAdvertisementController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show($id)
     {
         // $user_id = auth()->user()->id;
         // $user = User::find($user_id);
-        $id=$request->id;
+        // $id=$request->id
         $ads = Advertisement::find($id);
         //dd($ads);
         // return view('/dashboard.pages.show')->with('ads', $ads)->with('profile', $user->profile);
-        return view('/superuser.pages.superuserAdvertisementshow',compact('ads'));
+        return view('/superuser.pages.superuserAdvertisementShow', compact('ads'));
         
     }
     /**
@@ -118,11 +118,10 @@ class SuperuserAdvertisementController extends Controller
     {
         
         $adv = Advertisement::find($request->id);
-        return($adv);
-        // return($id);
-        // $adv->verified_adv = 1;
-        // $adv->save();
-        // return redirect('/dashboard/verifyAd');
+
+        $adv->verified_adv = 1;
+        $adv->save();
+        return redirect('/dashboard/verifyAd');
         
     }
 

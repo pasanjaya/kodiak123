@@ -2,13 +2,25 @@
 
 @section('content')
             <div class="container">
-                
-                <a href="/dashboard/verifyAd/show/{{$ads->id}}/" class="btn btn-danger ml-3 mt-3 float-right" >Reject</a>
-                {{-- {!!Form::open(['action' => ['AdvertisementController@destroy', $ads->id], 'method' => 'POST', 'class'=>'confirm_delete'])!!}
-                    {{Form::hidden('_method', 'DELETE')}}
-                    {{Form::submit('Delete', ['class'=> 'btn btn-danger ml-3 mt-3 float-right'])}}
-                {!!Form::close()!!} --}}
-                <a href="/dashboard/verifyAd/show/{{$ads->id}}/" class="btn btn-primary ml-3 mt-3 float-right">Verify</a>
+            
+                <div class="d-flex justify-content-end">
+                    <form action="{{ url('/dashboard/verifyAd/verify')}}" method="post">
+                        <input type="hidden" name="_token" value="{{ Session::token() }}">
+                        <input type="hidden" name="id" value="{{ $ads->id }}">
+                        <input type="submit" class="btn btn-sm btn-primary mr-2" value="Verify">
+                    </form>
+
+                    <form action="{{ url('/dashboard/verifyAd/reject')}}" method="post">
+                        <input type="hidden" name="_token" value="{{ Session::token() }}">
+                        <input type="hidden" name="id" value="{{ $ads->id }}">
+                        <input type="submit" class="btn btn-sm btn-danger" value="Reject">
+                    </form>
+                </div>
+
+
+
+
+
                  
                  <div class="card bg-light border-info mb-3" style="max-width: 100rem;"> 
                     <div class="card-header h3">{{$ads->title}}</div>

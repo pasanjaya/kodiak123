@@ -31,9 +31,9 @@ Route::get('/contact', 'LandingPageController@contact');
 Route::get('/dashboard', 'DashboardController@index');
 Route::get('/dashboard/offers', 'DashboardController@offers');
 Route::post('/dashboard/profile', 'DashboardController@profile'); //advertiser profile page
-//Route::post('/dashboard/verifyAd/verify','SuperuserAdvertisementController@verify');
-//Route::get('/dashboard/verifyAd/reject','SuperuserAdvertisementController@reject');
-// Route::get('/dashboard/verifyAd/show','SuperuserAdvertisementController@show');
+Route::post('/dashboard/verifyAd/verify','SuperuserAdvertisementController@verify');
+Route::post('/dashboard/verifyAd/reject','SuperuserAdvertisementController@reject');
+//Route::get('/dashboard/verifyAd/show','SuperuserAdvertisementController@show');
 
 
 // Route::resource('advertisement', 'AdvertisementController');
@@ -45,8 +45,6 @@ Route::resource('/dashboard/packeges', 'PackageController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::post('/dashboard/verifyAd/show','SuperuserAdvertisementController@show');
 
 
 
