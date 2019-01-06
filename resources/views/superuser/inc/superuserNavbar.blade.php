@@ -40,10 +40,20 @@
                     <li class="nav-item">
                       <a class="nav-link" href="/superuser/email">
                         <span data-feather="plus"></span>
-                         Send notification email 
+                          Send Notification
                       </a>
                     </li>
 
+<<<<<<< HEAD
+=======
+                    {{-- <li class="nav-item">
+                      <a class="nav-link" href="/dashboard/reports">
+                        <span data-feather="bar-chart-2"></span>
+                        Reports
+                      </a>
+                    </li> --}}
+
+>>>>>>> upstream/master
                   </ul>
     
               
