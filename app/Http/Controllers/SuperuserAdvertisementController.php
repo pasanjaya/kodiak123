@@ -73,18 +73,6 @@ class SuperuserAdvertisementController extends Controller
         return view('/superuser.pages.superuserAdvertisementshow',compact('ads'));
         
     }
-
-    // public function shows($id)
-    // {
-    //     // $user_id = auth()->user()->id;
-    //     // $user = User::find($user_id);
-
-    //     $ads = Advertisement::find($id);
-    //     // return view('/dashboard.pages.show')->with('ads', $ads)->with('profile', $user->profile);
-        
-    //     return view('/superuser.pages.superuserAdvertisementshow');
-    // }
-
     /**
      * Show the form for editing the specified resource.
      *

@@ -3,7 +3,7 @@
 @section('content')
             <div class="container">
                 
-                <a href="/dashboard/verifyAd/show/{{$ads->id}}/" class="btn btn-danger ml-3 mt-3 float-right">Reject</a>
+                <a href="/dashboard/verifyAd/show/{{$ads->id}}/" class="btn btn-danger ml-3 mt-3 float-right" >Reject</a>
                 {{-- {!!Form::open(['action' => ['AdvertisementController@destroy', $ads->id], 'method' => 'POST', 'class'=>'confirm_delete'])!!}
                     {{Form::hidden('_method', 'DELETE')}}
                     {{Form::submit('Delete', ['class'=> 'btn btn-danger ml-3 mt-3 float-right'])}}
@@ -49,5 +49,7 @@
                 });
             });
     </script>
+
+    
 
 @endsection
