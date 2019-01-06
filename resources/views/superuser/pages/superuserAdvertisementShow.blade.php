@@ -1,16 +1,28 @@
-@extends('layouts.appad')
+@extends('superuser.layouts.superuserAppad')
 
 @section('content')
             <div class="container">
-                
-                {{-- <a href="/offers/{{$ads->id}}/" class="btn btn-danger ml-3 mt-3 float-right">Delete</a> --}}
-                {!!Form::open(['action' => ['AdvertisementController@destroy', $ads->id], 'method' => 'POST', 'class'=>'confirm_delete'])!!}
-                    {{Form::hidden('_method', 'DELETE')}}
-                    {{Form::submit('Delete', ['class'=> 'btn btn-danger ml-3 mt-3 float-right'])}}
-                {!!Form::close()!!}
-                <a href="/dashboard/offers/{{$ads->id}}/edit" class="btn btn-primary ml-3 mt-3 float-right">Update</a>
-                
-                <div class="card bg-light border-info mb-3" style="max-width: 100rem;">
+            
+                <div class="d-flex justify-content-end">
+                    <form action="{{ url('/dashboard/verifyAd/verify')}}" method="post">
+                        <input type="hidden" name="_token" value="{{ Session::token() }}">
+                        <input type="hidden" name="id" value="{{ $ads->id }}">
+                        <input type="submit" class="btn btn-sm btn-primary mr-2" value="Verify">
+                    </form>
+
+                    <form action="{{ url('/dashboard/verifyAd/reject')}}" method="post">
+                        <input type="hidden" name="_token" value="{{ Session::token() }}">
+                        <input type="hidden" name="id" value="{{ $ads->id }}">
+                        <input type="submit" class="btn btn-sm btn-danger" value="Reject">
+                    </form>
+                </div>
+
+
+
+
+
+                 
+                 <div class="card bg-light border-info mb-3" style="max-width: 100rem;"> 
                     <div class="card-header h3">{{$ads->title}}</div>
                     <img class="card-img-top w-100" src="/storage/advertisement_images/{{$ads->image_name}}" alt="ad image">
                     <div class="card-body">
@@ -18,7 +30,7 @@
                     <p class="card-text">{!!$ads->description!!}</p>
                     </div>
                     <div class="card-footer bg-light border-default">tags: {{$ads->tags}}</div>
-                </div>
+                </div> 
             </div>
 
             </main>

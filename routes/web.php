@@ -32,13 +32,16 @@ Route::get('/dashboard', 'DashboardController@index');
 Route::get('/dashboard/offers', 'DashboardController@offers');
 Route::post('/dashboard/profile', 'DashboardController@profile'); //advertiser profile page
 Route::post('/dashboard/verifyAd/verify','SuperuserAdvertisementController@verify');
-Route::get('/dashboard/verifyAd/reject','SuperuserAdvertisementController@reject');
+Route::post('/dashboard/verifyAd/reject','SuperuserAdvertisementController@reject');
+//Route::get('/dashboard/verifyAd/show','SuperuserAdvertisementController@show');
+
 
 // Route::resource('advertisement', 'AdvertisementController');
 Route::resource('/dashboard/offers', 'AdvertisementController');
 Route::resource('/dashboard/profile', 'BusinessProfileController');
 Route::resource('/superuser/dashboard', 'SuperuserController');
 Route::resource('/dashboard/verifyAd', 'SuperuserAdvertisementController');
+Route::resource('/dashboard/packeges', 'PackageController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -64,6 +67,7 @@ Route::post('superuser/send', 'MailController@send');
 
 //Route::get('superuser/dashboards', 'GraphController@index1');
 Route::get('superuser/dashboard', 'GraphController@index');
+
 
 
 

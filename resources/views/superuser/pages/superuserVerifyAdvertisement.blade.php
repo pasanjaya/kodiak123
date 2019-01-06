@@ -20,33 +20,23 @@
                 @if(count($ads) > 0)
                     <div class="row">
                         @foreach ($ads as $ad)
-                            <div class="card border-primary mt-5 mb-4 mr-5 ml-5 float-left" style="max-width: 35rem;">
-                                <div class="card-header">
-                                    <div class="d-flex">
-                                        <div class="d-flex justify-content-start">
-                                            ID: {{$ad->id}}
-                                        </div>
-                                        <div class="d-flex justify-content-end">
-                                            <form action="{{ url('/dashboard/verifyAd/verify')}}" method="post">
-                                                <input type="hidden" name="_token" value="{{ Session::token() }}">
-                                                <input type="hidden" name="id" value="{{ $ad->id }}">
-                                                <input type="submit" class="btn btn-sm btn-primary mr-2" value="Verify">
-                                            </form>
 
-                                            <form action="{{ url('/dashboard/verifyAd/reject')}}" method="post">
-                                                <input type="hidden" name="_token" value="{{ Session::token() }}">
-                                                <input type="hidden" name="id" value="{{ $ad->id }}">
-                                                <input type="submit" class="btn btn-sm btn-danger" value="Reject">
-                                            </form>
+                            <a href="/dashboard/verifyAd/{{$ad->id}}">
+                                <div class="card border-primary mt-5 mb-4 mr-5 ml-5 float-left" style="max-width: 35rem;">
+                                    <div class="card-header">
+                                        <div class="d-flex">
+                                            <div class="d-flex justify-content-start">
+                                                ID: {{$ad->id}}
+                                            </div>
                                         </div>
                                     </div>
+                                    <div class="card-body text-primary">
+                                        <img class="card-img-top w-25 mr-5 float-left" src="/storage/advertisement_images/{{$ad->image_name}}" alt="ad image">
+                                        <h5 class="card-title">{{$ad->title}}</h5>
+                                        <p class="card-text">{{$ad->created_at}}</p>
+                                    </div>                           
                                 </div>
-                                <div class="card-body text-primary">
-                                    <img class="card-img-top w-25 mr-5 float-left" src="/storage/advertisement_images/{{$ad->image_name}}" alt="ad image">
-                                    <h5 class="card-title"><a href="offers/{{$ad->id}}">{{$ad->title}}</a></h5>
-                                    <p class="card-text">{{$ad->created_at}}</p>
-                                </div>                           
-                            </div>
+                            </a>
                         @endforeach
                     </div>
                     <div class="row">
@@ -63,7 +53,7 @@
             </main>
         </div>
     </div>
-
+{{-- 
     <script>
         $(document).ready(function(){
             $( ".confirm_delete" ).submit(function( event ) {
@@ -88,6 +78,6 @@
                 });
             });
         });
-</script>  
+</script>   --}}
 
 @endsection
