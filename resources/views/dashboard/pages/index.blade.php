@@ -66,5 +66,8 @@
 
     </div>
      
+    <div class="mt-5 d-flex justify-content-center">
+        <div style="width:800px; height:300px">{!! $chart->container() !!}</div>
+    </div>
 
 @endsection

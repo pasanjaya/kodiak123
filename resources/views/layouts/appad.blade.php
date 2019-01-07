@@ -19,6 +19,15 @@
         {{-- SweetAlert --}}
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+        {{-- Chart js CDN --}}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js" integrity="sha256-rjYnB0Bull7k2XkbJ03UNGqMuMieR769uQVGSSlsi6A=" crossorigin="anonymous"></script>
+        
+        @isset($chart)
+            {!! $chart->script() !!}
+        @endisset)
+        
+
+
         <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
 
     </head>
