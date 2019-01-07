@@ -3,6 +3,8 @@
 @section('content')
             <div class="container">
 
+                {{-- show the Unverified offers with the verified reject submit button  --}}
+
                  <div class="card bg-light border-info mb-3" style="max-width: 100rem;"> 
                     <div class="card-header h3">{{$ads->title}}</div>
                     <img class="card-img-top w-100" src="/storage/advertisement_images/{{$ads->image_name}}" alt="ad image">
@@ -34,7 +36,8 @@
             </main>
         </div>
     </div>
-    <script>
+     <script> 
+        // show the alert message (verify /reject )
             $(document).ready(function(){
                 $( ".confirm_verify" ).submit(function( event ) {
                     event.preventDefault();
@@ -52,7 +55,6 @@
                         if(willDelete){
                             $(".confirm_verify").off("submit").submit();
                     }else{
-                        // swal("Your imaginary file is safe!");
                         swal('Cancelled', 'Verify Cancelled', 'info');
                     }
                     });

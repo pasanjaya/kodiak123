@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PackageController extends Controller
+class MessagesController extends Controller
 {
+
     /**
      * Create a new controller instance.
      *
@@ -16,7 +17,6 @@ class PackageController extends Controller
         $this->middleware('auth');
     }
 
-    
     /**
      * Display a listing of the resource.
      *
@@ -24,7 +24,7 @@ class PackageController extends Controller
      */
     public function index()
     {
-        return view('/dashboard.pages.packages');
+        return view('/dashboard.pages.messages');
     }
 
     /**

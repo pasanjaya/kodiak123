@@ -3,33 +3,12 @@
 @section('content')
 <div class="container-fluid">
     <div class="row ">
-        <div class="col-md-6">
-            <div class="card border-0 ml-5 mt-5" style="max-width: 50rem;">
-                <img class="card-img-top" src="/storage/misc_images/login_side.jpg" alt="Card image cap" style="opacity: 0.8; filter: alpha(opacity=80);">
-                <div class="card-body">
-                    <h5 class="card-title">Welcome to Kodiak Platform</h5>
-                    <p class="card-text text-muted">If you want to promote your <b>offer</b>:</p>
-                    <p class="card-text text-muted">have login portals for each business/organization so you can upload the promotions from your side. You have the freedom to choose what to be promoted and the number of dates which the promotion to be on the website. <b>You can decide the entire marketing campaign.</b></p>                    
-                    {{-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
-                </div>
-            </div>
-        </div>
         <div class="col-md-6 align-self-center">
             <div class="card border-0" style="max-width: 50rem; height:25rem">
-                <div class="card-header bg-transparent border-bottom mb-5"> {{ isset($url) ? ucwords($url) : ""}} {{ __('Login') }}</div>
+                <div class="card-header bg-transparent border-bottom mb-5">{{ __('Login') }}</div>
 
                 <div class="card-body">
-
-                    {{--  --}}
-                        @isset($url)
-                        <form method="POST" action='{{ url("login/$url") }}' aria-label="{{ __('Login') }}">
-                        @else
-
-                    {{--  --}}
                     <form method="POST" action="{{ route('login') }}">
-
-                        @endisset
-
                         @csrf
 
                         <div class="form-group row">

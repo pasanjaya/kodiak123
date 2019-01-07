@@ -3,8 +3,9 @@
 
 
 @section('content')
-<div class="row ml-5">
-    <div class="card mr-5 border-0 bg-success" style="width: 20rem;">
+<div class="container">
+    <div class="row mt-5">
+        <div class="card mr-5 border-0 bg-success" style="width: 20rem;">
             <div class="card-body align-items-center justify-content-center">
                 <div class="d-flex justify-content-center">
                     <h2 class="font-weight-bold text-warning">{{ $ad }}</h2>
@@ -36,7 +37,7 @@
                 </div>
             </div>
         </div>
-        </div>
+    </div>
 
 
 
@@ -59,7 +60,7 @@
   </script>
   <br><br>
 
-  <div class="container">
+  
   
    
    <div class="panel panel-default">

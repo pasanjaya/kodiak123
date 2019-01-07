@@ -16,7 +16,7 @@
                     Advertiser
                 </a>
 
-                <a href="/superuser/dashboard" class="flex-c-m trans-04 p-lr-25">
+                <a href="/login/admin" class="flex-c-m trans-04 p-lr-25">
                     CPanel
                 </a>
             </div>

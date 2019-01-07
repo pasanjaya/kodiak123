@@ -11,40 +11,44 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 Route::get('/', 'LandingPageController@index');
 
 Route::get('/deals', 'DealsController@index');
-// Route::get('/deals/{product}', 'DealsController@show')->name('deal.show');
 Route::get('/details/{product}', 'DealsController@show')->name('details.show');
 
-// Route::get('/details', 'LandingPageController@details');
 
 Route::get('/about', 'LandingPageController@about');
 Route::get('/contact', 'LandingPageController@contact');
 
-
-
 Route::get('/dashboard', 'DashboardController@index');
 Route::get('/dashboard/offers', 'DashboardController@offers');
 Route::post('/dashboard/profile', 'DashboardController@profile'); //advertiser profile page
-Route::post('/dashboard/verifyAd/verify','SuperuserAdvertisementController@verify');
-Route::post('/dashboard/verifyAd/reject','SuperuserAdvertisementController@reject');
-//Route::get('/dashboard/verifyAd/show','SuperuserAdvertisementController@show');
 
-
-// Route::resource('advertisement', 'AdvertisementController');
 Route::resource('/dashboard/offers', 'AdvertisementController');
 Route::resource('/dashboard/profile', 'BusinessProfileController');
-Route::resource('/superuser/dashboard', 'SuperuserController');
-Route::resource('/dashboard/verifyAd', 'SuperuserAdvertisementController');
 Route::resource('/dashboard/packeges', 'PackageController');
+Route::resource('/dashboard/messages', 'MessagesController');
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('/superuser/dashboard', 'SuperuserController')->middleware('auth');
+Route::resource('/dashboard/verifyAd', 'SuperuserAdvertisementController');
+
+Route::post('/dashboard/verifyAd/verify','SuperuserAdvertisementController@verify');
+Route::post('/dashboard/verifyAd/reject','SuperuserAdvertisementController@reject');
+
+//admin login controller
+
+Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
+Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
+
+Route::post('/login/admin', 'Auth\LoginController@adminLogin');
+Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
+
+// Route::get('/home', 'HomeController@index')->name('home');
+
 
 
 
@@ -65,11 +69,6 @@ Route::get('superuser/email', function () {
 
 Route::post('superuser/send', 'MailController@send');
 
-//Route::get('superuser/dashboards', 'GraphController@index1');
+
 Route::get('superuser/dashboard', 'GraphController@index');
-
-
-
-
-
 
