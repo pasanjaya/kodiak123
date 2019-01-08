@@ -9,8 +9,8 @@
 
                     {!! Form::open(['action' => 'MessagesController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
                         <div class="form-group col-10">
-                            {{Form::label('email', 'Email *')}}
-                            {{Form::email('email', '', ['class'=> 'form-control', 'placeholder' => 'email'])}}
+                            {{Form::label('email', 'Email')}}
+                            {{Form::email('email', 'kodiakmailservice@gmail.com', ['class'=> 'form-control', 'placeholder' => 'Email', 'readonly'])}}
                             
                         </div>
                         <div class="form-group col-10">
@@ -19,12 +19,12 @@
                         </div>
 
                         <div class="form-group col-10">
-                            {{Form::label('description', 'Mail body')}}
+                            {{Form::label('description', 'Message *')}}
                             {{Form::textarea('description', '', ['id'=> 'article-ckeditor','class'=> 'form-control', 'placeholder' => 'Description'])}}
                         </div>
                         
                         <div class="form-group col-3 mt-5">
-                            {{Form::submit('Send mail', ['class' => 'btn btn-primary'])}}
+                            {{Form::submit('Send message', ['class' => 'btn btn-primary'])}}
                         </div>
 
                         <br><br>
@@ -62,6 +62,13 @@
                 });
             });
         });
-</script>  
+</script>
+
+
+{{-- Change text editer to ckEditer --}}
+<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'article-ckeditor' );
+</script>
 
 @endsection

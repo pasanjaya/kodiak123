@@ -52,11 +52,11 @@ class DashboardController extends Controller
         }
 
         return view('dashboard.pages.index')->with('profile', $user->profile)
-        ->with('subscribers', $user->profile->subscribe_count)
-        ->with('brandHits', $user->profile->brand_hits)
-        ->with('viewCount', $advs->sum('view_count'))
-        ->with('adCount', $advs->count())
-        ->with('chart', $chart);
+                            ->with('subscribers', $user->profile->subscribe_count)
+                            ->with('brandHits', $user->profile->brand_hits)
+                            ->with('viewCount', $advs->sum('view_count'))
+                            ->with('adCount', $advs->count())
+                            ->with('chart', $chart);
     }
 
     public function offers(){
