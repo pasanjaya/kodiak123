@@ -51,25 +51,27 @@ Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
 // Route::get('/home', 'HomeController@index')->name('home');
 
 
+Route::resource('/superuser/dashboard', 'SuperuserController')->middleware('auth');
+Route::resource('/dashboard/verifyAd', 'SuperuserAdvertisementController');
 
+Route::post('/dashboard/verifyAd/verify','SuperuserAdvertisementController@verify');
+Route::post('/dashboard/verifyAd/reject','SuperuserAdvertisementController@reject');
 
-/*Route::get('/superuser/verify','MailController@verify');
-Route::get('/email','MailController@email')->name('sendEmail');
+//admin login controller
 
-Route::get('superuser/eemail', function () {
-    return view('fromail');
-});
+Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
+Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
 
-Route::post('send', 'MailController@send');*/
+Route::post('/login/admin', 'Auth\LoginController@adminLogin');
+Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
 
-//send notification mail to advertiser
+// Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('superuser/email', function () {
-    return view('superuser/pages/frontmail');
-});
+// send mail in superuser dashboard 
+Route::get('superuser/email', 'MailController@index');
+Route::post('superuser/send', 'MailController@sends');
 
-Route::post('superuser/send', 'MailController@send');
-
+//dashboard in superuser controller
 
 Route::get('superuser/dashboard', 'GraphController@index');
 
