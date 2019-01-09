@@ -28,9 +28,27 @@ Route::post('/dashboard/profile', 'DashboardController@profile'); //advertiser p
 Route::resource('/dashboard/offers', 'AdvertisementController');
 Route::resource('/dashboard/profile', 'BusinessProfileController');
 Route::resource('/dashboard/packeges', 'PackageController');
-Route::resource('/dashboard/messages', 'MessagesController');
+Route::resource('/dashboard/messages', 'MessagesController'); //->middleware('verified')
+// Route::get('/dashboard/messages','MessagesController@send');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
+
+
+Route::resource('/superuser/dashboard', 'SuperuserController')->middleware('auth');
+Route::resource('/dashboard/verifyAd', 'SuperuserAdvertisementController');
+
+Route::post('/dashboard/verifyAd/verify','SuperuserAdvertisementController@verify');
+Route::post('/dashboard/verifyAd/reject','SuperuserAdvertisementController@reject');
+
+//admin login controller
+
+Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
+Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
+
+Route::post('/login/admin', 'Auth\LoginController@adminLogin');
+Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
+
+// Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::resource('/superuser/dashboard', 'SuperuserController')->middleware('auth');
@@ -54,5 +72,6 @@ Route::get('superuser/email', 'MailController@index');
 Route::post('superuser/send', 'MailController@sends');
 
 //dashboard in superuser controller
+
 Route::get('superuser/dashboard', 'GraphController@index');
 

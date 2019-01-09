@@ -46,6 +46,12 @@
             </div>
         </main>
     </div>
-</div>   
+</div>
+
+{{-- Change text editer to ckEditer --}}
+<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'article-ckeditor' );
+</script>
 
 @endsection

@@ -27,38 +27,45 @@ class DashboardController extends Controller
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
 
-        $profile = BusinessProfile::where('user_id', '=', $user_id)->take(1)->get(); //get brand view count from db
-        $advs = Advertisement::where('user_id', '=', $user_id); //get advertisments from db
+        //get advertisments from db which are belongs to current user
+        $advs = Advertisement::where('user_id', '=', $user_id); 
 
+        // create an object of char
         $chart = new DashboardAdvChart;
         
+        // get view count data to include into the chart
         $data = $advs->get(['id', 'view_count']);
 
-        $labels = array();
-        $dataset = array();
+        $labels = array(); // advertisement id array
+        $dataset = array(); // advertisement view count array
 
+        // fill two arrys
         foreach($data as $item){
             $labels[] = $item->id;
             $dataset[] = $item->view_count;
         }
         
+        // add chart properties
         $chart->labels($labels);
         $chart->dataset('View Count', 'horizontalBar', $dataset);
         $chart->minimalist(false);
 
+        // profile validation check
+        // if profile is not filled then redirect to form filling page
 
         if(is_null($user->profile)) {
             return redirect()->action('BusinessProfileController@create');
         }
 
         return view('dashboard.pages.index')->with('profile', $user->profile)
-        ->with('subscribers', $user->profile->subscribe_count)
-        ->with('brandHits', $user->profile->brand_hits)
-        ->with('viewCount', $advs->sum('view_count'))
-        ->with('adCount', $advs->count())
-        ->with('chart', $chart);
+                            ->with('subscribers', $user->profile->subscribe_count)
+                            ->with('brandHits', $user->profile->brand_hits)
+                            ->with('viewCount', $advs->sum('view_count'))
+                            ->with('adCount', $advs->count())
+                            ->with('chart', $chart);
     }
 
+    
     public function offers(){
         $user_id = auth()->user()->id;
         $user = User::find($user_id); 

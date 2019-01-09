@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+// use Mail;
+
 class MessagesController extends Controller
 {
 
@@ -27,69 +29,33 @@ class MessagesController extends Controller
         return view('/dashboard.pages.messages');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function send()
     {
-        //
+        // Mail::send(['text'=>'mail'], ['name','pasan'], function($message){
+        //     $message->to('kodiakmailservice@gmail.com','To KodiakTeam')->subject('Test Email');
+        //     $message->from('pasan94edu@gmail.com','CristalC');
+        // });
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store the message in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
-    }
+        $this -> validate($request, [
+            'email' => 'required|email',
+            'subject' => 'required|max:150',
+            'message' => 'required|string|max:255'
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        
+        
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        return redirect('/dashboard')->with('success', 'Sending message success!');
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+    
 }

@@ -16,7 +16,8 @@ class CreateAdvertiesmentSubCategoriesTable extends Migration
         Schema::create('advertiesment_sub_categories', function (Blueprint $table) {
             $table->increments('sub_category_id');
             $table->string('sub_category');
-            $table->integer('category_id');
+            $table->integer('category_id')->unsigned();
+            $table->foreign('category_id')->references('category_id')->on('advertiesment_categories')->onDelete('cascade');
         });
     }
 
