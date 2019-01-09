@@ -32,10 +32,10 @@
 
     </head>
     <body>
+        
         @include('inc.navbar')
         @include('inc.messages')
         @yield('content')
-    
 
         {{-- ================= Script ================== --}}
         {{-- Icons --}}
@@ -45,13 +45,6 @@
         </script>
         
         
-
-        
-
-        <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
-        <script>
-            CKEDITOR.replace( 'article-ckeditor' );
-        </script>
 
 <script>
     // Errors

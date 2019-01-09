@@ -28,9 +28,10 @@ Route::post('/dashboard/profile', 'DashboardController@profile'); //advertiser p
 Route::resource('/dashboard/offers', 'AdvertisementController');
 Route::resource('/dashboard/profile', 'BusinessProfileController');
 Route::resource('/dashboard/packeges', 'PackageController');
-Route::resource('/dashboard/messages', 'MessagesController');
+Route::resource('/dashboard/messages', 'MessagesController'); //->middleware('verified')
+Route::get('/dashboard/messages','MessagesController@send');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 
 Route::resource('/superuser/dashboard', 'SuperuserController')->middleware('auth');
