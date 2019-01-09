@@ -48,7 +48,7 @@
         </script>
 
 <script>
-    // Errors
+    // Errors alert
     var has_errors = 'false';
     @if(count($errors) > 0)
         has_errors = 'true';

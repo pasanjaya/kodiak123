@@ -49,26 +49,10 @@ Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
+// send mail in superuser dashboard 
+Route::get('superuser/email', 'MailController@index');
+Route::post('superuser/send', 'MailController@sends');
 
-
-
-/*Route::get('/superuser/verify','MailController@verify');
-Route::get('/email','MailController@email')->name('sendEmail');
-
-Route::get('superuser/eemail', function () {
-    return view('fromail');
-});
-
-Route::post('send', 'MailController@send');*/
-
-//send notification mail to advertiser
-
-Route::get('superuser/email', function () {
-    return view('superuser/pages/frontmail');
-});
-
-Route::post('superuser/send', 'MailController@send');
-
-
+//dashboard in superuser controller
 Route::get('superuser/dashboard', 'GraphController@index');
 
