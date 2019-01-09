@@ -89,7 +89,7 @@
 <!--===============================================================================================-->
 	<script src="/vendor/isotope/isotope.pkgd.min.js"></script>
 <!--===============================================================================================-->
-	<script src="/vendor/sweetalert/sweetalert.min.js"></script>
+	{{-- <script src="/vendor/sweetalert/sweetalert.min.js"></script>
 	<script>
 		$('.js-addwish-b2').on('click', function(e){
 			e.preventDefault();
@@ -125,7 +125,7 @@
 			});
 		});
 	
-	</script>
+	</script> --}}
 <!--===============================================================================================-->
 	<script src="/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 	<script>

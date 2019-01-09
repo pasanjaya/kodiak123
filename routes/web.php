@@ -29,7 +29,7 @@ Route::resource('/dashboard/offers', 'AdvertisementController');
 Route::resource('/dashboard/profile', 'BusinessProfileController');
 Route::resource('/dashboard/packeges', 'PackageController');
 Route::resource('/dashboard/messages', 'MessagesController'); //->middleware('verified')
-Route::get('/dashboard/messages','MessagesController@send');
+// Route::get('/dashboard/messages','MessagesController@send');
 
 Auth::routes(['verify' => true]);
 
@@ -48,12 +48,11 @@ Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
 Route::post('/login/admin', 'Auth\LoginController@adminLogin');
 Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
 
-// Route::get('/home', 'HomeController@index')->name('home');
-
 // send mail in superuser dashboard 
 Route::get('superuser/email', 'MailController@index');
 Route::post('superuser/send', 'MailController@sends');
 
 //dashboard in superuser controller
+
 Route::get('superuser/dashboard', 'GraphController@index');
 

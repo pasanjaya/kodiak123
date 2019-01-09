@@ -51,7 +51,7 @@ class AdvertisementController extends Controller
         $today = Carbon::now()->toDateString();
 
     
-        return view('/dashboard.pages.offers')->with('ads', $ads) 
+        return view('/dashboard.pages.offers')->with('ads', $ads)
                                         ->with('rejects', $rejectads)
                                         ->with('today', $today)
                                         ->with('profile', $user->profile);
