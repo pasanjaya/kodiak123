@@ -29,7 +29,7 @@ Route::resource('/dashboard/offers', 'AdvertisementController');
 Route::resource('/dashboard/profile', 'BusinessProfileController');
 Route::resource('/dashboard/packeges', 'PackageController');
 Route::resource('/dashboard/messages', 'MessagesController'); //->middleware('verified')
-Route::get('/dashboard/messages','MessagesController@send');
+// Route::get('/dashboard/messages','MessagesController@send');
 
 Auth::routes(['verify' => true]);
 
