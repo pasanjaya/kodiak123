@@ -15,7 +15,7 @@ class CreateBusinessProfilesTable extends Migration
     {
         Schema::create('business_profiles', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
             $table->string('reg_name');
             $table->string('reg_no');
             $table->string('category');
@@ -29,6 +29,7 @@ class CreateBusinessProfilesTable extends Migration
             $table->string('business_email');
             $table->string('inq_mail');
             $table->timestamp('email_verified_at')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

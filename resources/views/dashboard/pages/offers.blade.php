@@ -21,6 +21,7 @@
                                     <h6 class="card-text"><span class="text-secondary">Created at: </span>{{ $ad->created_at }}</h6>
                                         @if($today > $ad->end_date)
                                             <span class="text-danger">Expired Offer</span>
+                                            <p class="text-danger">Will be removed in 3 days</p>
                                         @endif
                                 </div>                           
                             </div>

@@ -17,9 +17,15 @@ class DealsController extends Controller
      */
     public function index()
     {
-        $deals = Advertisement::where('reject_flag', '=', 0)->inRandomOrder()->take(16)->get();
-
+        // get current date
         $today = Carbon::now()->toDateString();
+
+        // check for expiration and rejections anf get data
+        $deals = Advertisement::where('reject_flag', '=', 0)
+                                // ->where('end_date', '>', $today)
+                                ->inRandomOrder()->take(16)->get();
+
+        
         
         return view('frontpages.deals')->with('deals', $deals)->with('today', $today);
     }
@@ -36,19 +42,22 @@ class DealsController extends Controller
     {
         $deal = Advertisement::find($id);
         
-        // incriment view by one and save back to relation
+        // increment view by one and save back to relation
         $count = AdvertisementView::incrementViewCount($deal);
         $deal -> view_count = $count;
         $deal->save();
 
-        $profile = BusinessProfile::where('user_id', '=', $deal->user_id)->take(1)->get(); //get profile details
+        //get profile details
+        $profile = BusinessProfile::where('user_id', '=', $deal->user_id)->take(1)->get();
 
-        $count = BusinessProfile::incrementBrandViewCount($profile[0]); //increment the view count
+        //increment the brand view count
+        $count = BusinessProfile::incrementBrandViewCount($profile[0]); 
         $profile[0] -> brand_hits = $count;
         $profile[0] -> save();
 
+        // get current date
         $today = Carbon::now()->toDateString();
-        // return($today);
+        
         return view('frontpages.details')->with('today', $today)->with('deal', $deal);
     }
 
