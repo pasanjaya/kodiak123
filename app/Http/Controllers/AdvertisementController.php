@@ -31,30 +31,26 @@ class AdvertisementController extends Controller
     public function index()
     {
 
-        // $ads = Advertisement::all();
-        // return Advertisement::where('title', 'Basic Tube Top')->get();
-        // $ads = Advertisement::orderBy('updated_at', 'desc')->take(1)->get(); 
-        // $ads = Advertisement::orderBy('updated_at', 'desc')->get();
-        // $ads = Advertisement::orderBy('updated_at', 'desc')->paginate(2);
-
-        // $ads = Advertisement::orderBy('updated_at', 'desc')->paginate(2);
-
-        
+        // get user id
         $user_id = auth()->user()->id;
         
+        // get advertisement which not rejected
         $ads = Advertisement::where('user_id', '=', $user_id)
                                 ->where('reject_flag', '=', 0)
                                 -> orderBy('updated_at', 'desc')->paginate(2);
 
+        // rejected advertiesments
         $rejectads = Advertisement::where('user_id', '=', $user_id)
                             ->where('reject_flag', '=', 1)
                             -> orderBy('updated_at', 'desc')->paginate(2);
-
+        
+        // user details on current user
         $user = User::find($user_id);
+
+        // get the current time
         $today = Carbon::now()->toDateString();
 
-        // return($ads);
-        // return view('/frontpages.index') -> with('ads', $ads);
+    
         return view('/dashboard.pages.offers')->with('ads', $ads)
                                         ->with('rejects', $rejectads)
                                         ->with('today', $today)
@@ -145,7 +141,9 @@ class AdvertisementController extends Controller
          $user_id = auth()->user()->id;
          $user = User::find($user_id);
 
+         // get correct ad
          $ads = Advertisement::find($id);
+
          return view('/dashboard.pages.show')->with('ads', $ads)->with('profile', $user->profile);
     }
 
@@ -209,6 +207,8 @@ class AdvertisementController extends Controller
         }
         $ad -> start_date = $request->input('start_date');
         $ad -> end_date = $request->input('end_date');
+        
+        // after every update admin will have to review the adv. 
         $ad -> reject_flag = 0;
         $ad -> verified_adv = 0;
         $ad -> view_count = 0;
@@ -227,9 +227,13 @@ class AdvertisementController extends Controller
     {
         $ad = Advertisement::find($id);
 
+        //remove requested advertisement from storage folder
         Storage::delete('public/advertisement_images/'.$ad->image_name);
 
+        // execute the delete 
         $ad->delete();
+        
+        // redircet to offer page with alert message
         return redirect('/dashboard/offers')->with('success', 'Advertisement Deleted successfully!');
     }
 }

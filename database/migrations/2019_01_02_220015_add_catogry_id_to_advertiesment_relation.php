@@ -14,7 +14,8 @@ class AddCatogryIdToAdvertiesmentRelation extends Migration
     public function up()
     {
         Schema::table('advertisements', function(Blueprint $table){
-            $table->integer('category_id');
+            $table->integer('category_id')->unsigned();
+            $table->foreign('category_id')->references('category_id')->on('advertiesment_categories')->onDelete('cascade');
         });
     }
 

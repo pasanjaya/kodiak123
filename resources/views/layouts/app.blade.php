@@ -43,17 +43,27 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                {{-- relink if admin --}}
+                                @isset($url)
+                                    <a class="nav-link" href="{{ url("login/$url") }}">{{ __('Login') }}</a>
+                                @else
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                @endisset
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                {{-- relink if admin --}}
+                                @isset($url)
+                                    <a class="nav-link" href="{{ url("register/$url") }}">{{ __('Register') }}</a>
+                                @else
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                @endisset
                             </li>
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-
+                                {{-- logout link --}}
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
@@ -87,9 +97,5 @@
     {{-- SweetAlert --}}
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
-    <script>
-        CKEDITOR.replace( 'article-ckeditor' );
-    </script>
 </body>
 </html>

@@ -35,6 +35,7 @@ class BusinessProfileController extends Controller
         
         $user = User::find($user_id);
         
+        // create category array with category name and id
         $category = AdvertiesmentCategory::pluck('category_name', 'category_id');
 
         return view('/dashboard.pages.profile')->with('profile', $user->profile)
@@ -92,12 +93,12 @@ class BusinessProfileController extends Controller
             $filenameToStore = 'nopic.jpg';
         }
 
+        // create new busnessprofile object and store data in to it
         $brand = new BusinessProfile;
         $brand -> user_id = auth()->user()->id;
         $brand -> reg_name = $request->input('reg_name');
         $brand -> reg_no = $request->input('reg_no');
         $brand -> category = $request->input('category');
-        // $brand -> sub_category = $request->input('sub_category');
         $brand -> about = $request->input('about');
         $brand -> image_name = $filenameToStore;
         $brand -> street = $request->input('street');
@@ -122,7 +123,8 @@ class BusinessProfileController extends Controller
      */
     public function show($id)
     {
-        //
+        // view the business profile
+        // to be done 
     }
 
     /**
@@ -176,12 +178,12 @@ class BusinessProfileController extends Controller
             $filenameToStore = 'nopic.jpg';
         }
 
+        //take the current data row
         $brand = BusinessProfile::find($id);
         $brand -> user_id = auth()->user()->id;
         $brand -> reg_name = $request->input('reg_name');
         $brand -> reg_no = $request->input('reg_no');
         $brand -> category = $request->input('category');
-        // $brand -> sub_category = $request->input('sub_category');
         $brand -> about = $request->input('about');
         $brand -> image_name = $filenameToStore;
         $brand -> street = $request->input('street');
@@ -214,6 +216,7 @@ class BusinessProfileController extends Controller
         ]);
 
         $user = User::find($id);
+        // check the hash password is correct or not
         if(Hash::check($request->password, $user->password)){
             $profile = BusinessProfile::where('user_id', '=', $id)->get();
             $ads = Advertisement::where('user_id', '=', $id)->get();
@@ -230,7 +233,9 @@ class BusinessProfileController extends Controller
             $user->delete();
             return redirect('/login');
 
-        } else{
+        } 
+        // if not correct send a message and redirect to the path
+        else{
             $validator = Validator::make([], []);
             $validator->errors()->add('password', 'Password is incorrect! ');
             return redirect('/dashboard/profile')->withErrors($validator)->withInput();
