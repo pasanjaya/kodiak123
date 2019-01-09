@@ -50,6 +50,7 @@ class BusinessProfileController extends Controller
      */
     public function create()
     {
+        // create category array with category name and id
         $category = AdvertiesmentCategory::pluck('category_name', 'category_id');
 
         return view('/dashboard.pages.createprofile')->with('category', $category);
