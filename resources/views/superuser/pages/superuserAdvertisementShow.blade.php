@@ -3,7 +3,7 @@
 @section('content')
             <div class="container">
 
-                {{-- show the Unverified offers with the verified reject submit button  --}}
+                 {{-- show the Unverified offers with the verified reject submit button    --}}
 
                  <div class="card bg-light border-info mb-3" style="max-width: 100rem;"> 
                     <div class="card-header h3">{{$ads->title}}</div>
