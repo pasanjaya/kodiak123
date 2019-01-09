@@ -7,7 +7,7 @@
                     <h2 class="card-header mb-5">Contact Team Kodiak</h2>
                     <div class="card-body container ">
 
-                    {!! Form::open(['action' => 'MessagesController@send', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+                    {!! Form::open(['action' => 'MessagesController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
                         <div class="form-group col-10">
                             {{Form::label('email', 'Email *')}}
                             {{Form::email('email', 'kodiakmailservice@gmail.com', ['class'=> 'form-control', 'placeholder' => 'Email', 'readonly'])}}
@@ -19,8 +19,8 @@
                         </div>
 
                         <div class="form-group col-10">
-                            {{Form::label('description', 'Message *')}}
-                            {{Form::textarea('description', '', ['id'=> 'article-ckeditor','class'=> 'form-control', 'placeholder' => 'Description'])}}
+                            {{Form::label('message', 'Message *')}}
+                            {{Form::textarea('message', '', ['id'=> 'article-ckeditor','class'=> 'form-control', 'placeholder' => 'Description'])}}
                         </div>
                         
                         <div class="form-group col-3 mt-5">

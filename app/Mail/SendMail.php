@@ -28,6 +28,7 @@ class SendMail extends Mailable
      */
     public function build()
     {
+        //return the instance of  mailable class
         return $this->view('superuser.pages.mail')->subject('Notification Mail');
     }
 }
