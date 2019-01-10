@@ -25,9 +25,7 @@ class DealsController extends Controller
                                 ->where('verified_adv', '=', 1)
                                 // ->where('end_date', '>', $today)
                                 ->inRandomOrder()->take(16)->get();
-
-        
-        
+                                        
         return view('frontpages.deals')->with('deals', $deals)->with('today', $today);
     }
 
