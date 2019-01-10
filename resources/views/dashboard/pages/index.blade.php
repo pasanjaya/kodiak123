@@ -20,8 +20,10 @@
             </div>
         </div>
     </div>
+{{-- statistical card count views --}}
 
     <div class="row ml-1 d-flex justify-content-center">
+        {{-- brand hits --}}
         <div class="card mr-3 border-0" style="width: 14rem;">
             <div class="card-body align-items-center justify-content-center">
                 <div class="d-flex justify-content-center">
@@ -32,6 +34,7 @@
                 </div>
             </div>
         </div>
+        {{-- add count --}}
         <div class="card mr-3 border-0" style="width: 14rem;">
             <div class="card-body align-items-center justify-content-center">
                 <div class="d-flex justify-content-center">
@@ -42,6 +45,7 @@
                 </div>
             </div>
         </div>
+        {{-- view count for all adds --}}
         <div class="card mr-3 border-0" style="width: 14rem;">
             <div class="card-body align-items-center justify-content-center">
                 <div class="d-flex justify-content-center">
@@ -52,7 +56,7 @@
                 </div>
             </div>
         </div>
-
+        {{-- mobile subscribers count --}}
         <div class="card mr-3 border-0" style="width: 14rem;">
             <div class="card-body align-items-center justify-content-center">
                 <div class="d-flex justify-content-center">
@@ -66,6 +70,7 @@
 
     </div>
      
+    {{-- statical graph --}}
     <div class="mt-5 d-flex justify-content-center">
         <div style="width:800px; height:300px">{!! $chart->container() !!}</div>
     </div>

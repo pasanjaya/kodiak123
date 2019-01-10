@@ -5,6 +5,7 @@
                 <div class="card border-info" style="width: 75rem;">
                     <h2 class="card-header mb-5">Update Advertisement</h2>
                     <div class="card-body container">
+                        {{-- update advertiesment form --}}
                     {!! Form::open(['action' => ['AdvertisementController@update', $ads->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
                         <div class="form-group col-10">
                             {{Form::label('title', 'Title *')}}

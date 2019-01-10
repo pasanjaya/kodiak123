@@ -6,7 +6,7 @@
                 <div class="card border-info" style="width: 70rem;">
                     <h2 class="card-header mb-5">Contact Team Kodiak</h2>
                     <div class="card-body container ">
-
+                {{-- message creating form --}}
                     {!! Form::open(['action' => 'MessagesController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
                         <div class="form-group col-10">
                             {{Form::label('email', 'Email *')}}
@@ -38,6 +38,8 @@
         </div>
     </div>
 
+    {{-- sweetalert tigger --}}
+
     <script>
         $(document).ready(function(){
             $( ".confirm_delete" ).submit(function( event ) {
@@ -56,7 +58,6 @@
                     if(willDelete){
                         $(this).off("submit").submit();
                 }else{
-                    // swal("Your imaginary file is safe!");
                     swal('Cancelled', 'Delete Cancelled', 'info');
                 }
                 });

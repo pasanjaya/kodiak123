@@ -9,7 +9,7 @@
                         @foreach ($ads as $ad)
                             <div class="card border-primary mt-5 mb-4 mr-5 ml-5 float-left" style="min-width:20rem; max-width: 30rem; max-height:20rem">
                                 <div class="card-header" style="height:75px;">ID: {{ $ad->id }}
-
+                                {{-- delete button --}}
                                     {!! Form::open(['action' => ['AdvertisementController@destroy', $ad->id], 'method' => 'POST', 'class'=>'confirm_delete']) !!}
                                         {{ Form::hidden('_method', 'DELETE')}}
                                         {{ Form::submit('Delete', ['class'=> 'btn btn-sm btn-danger ml-3 float-right']) }}
@@ -28,6 +28,7 @@
                         @endforeach
                     </div>
                     <div class="row">
+                        {{-- pagination --}}
                         <div class="float-right mt-5">
                             {{ $ads->links() }}
                         </div>
@@ -39,7 +40,7 @@
             </div>
             <hr>
             <div class="mt-2 ">
-                    
+                    {{-- rejected section disply only if availabel --}}
                     @if(count($rejects) > 0)
                     <h3>Rejected Advertiesments <span class="feather-24" data-feather="alert-circle"></span></h3>
                         <div class="row">
@@ -63,6 +64,7 @@
                             @endforeach
                         </div>
                         <div class="row">
+                            {{-- pagination --}}
                             <div class="float-right mt-5">
                                 {{$rejects->links()}}
                             </div>
@@ -75,6 +77,7 @@
         </div>
     </div>
 
+    {{-- sweetalert trigger --}}
     <script>
         $(document).ready(function(){
             $( ".confirm_delete" ).submit(function( event ) {
@@ -93,7 +96,6 @@
                     if(willDelete){
                         $(this).off("submit").submit();
                 }else{
-                    // swal("Your imaginary file is safe!");
                     swal('Cancelled', 'Delete Cancelled', 'info');
                 }
                 });

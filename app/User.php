@@ -28,6 +28,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'password', 'remember_token',
     ];
 
+    //ORM to one to one relation this side is one of user and business-profile relation
     public function profile(){
         return $this->hasOne('App\BusinessProfile');
     }

@@ -41,7 +41,7 @@ class MessagesController extends Controller
             'subject' => 'required|max:150',
             'message' => 'required|string|max:255'
         ]);
-        
+        // get message model and store message data in the database
         $msg = new Message;
         $msg->user_id = auth()->user()->id;
         $msg->subject = $request->input('subject');

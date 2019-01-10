@@ -243,4 +243,44 @@ class BusinessProfileController extends Controller
         }
         
     }
+
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function resetPassword(Request $request)
+    {
+        $id = auth()->user()->id;
+
+        // return($request);
+        $this -> validate($request, [
+            'name' => 'required|string|max:255',
+            'email' => "required|string|email|max:255|unique:users,id,$id",
+            'current_pass' => 'required|string|min:6',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+
+        //take the current data row
+        
+        $user = User::find($id);
+
+        if(Hash::check($request->current_pass, $user->password)){
+            $user -> name = $request->input('name');
+            $user -> password = Hash::make($request->input('password'));
+            $user->save();
+        }
+        // if not correct send a message and redirect to the path
+        else{
+            $validator = Validator::make([], []);
+            $validator->errors()->add('password', 'Password is incorrect! ');
+            return redirect('/dashboard/profile')->withErrors($validator)->withInput();
+        }
+        
+        // redirect to the dashboard
+        return redirect('/dashboard')->with('success', 'Updation success!');
+    }
 }

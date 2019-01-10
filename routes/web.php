@@ -11,6 +11,7 @@
 |
 */
 
+//landinpage routing
 
 Route::get('/', 'LandingPageController@index');
 
@@ -21,17 +22,19 @@ Route::get('/details/{product}', 'DealsController@show')->name('details.show');
 Route::get('/about', 'LandingPageController@about');
 Route::get('/contact', 'LandingPageController@contact');
 
+//advetiser dashboard routing
+
 Route::get('/dashboard', 'DashboardController@index');
 Route::get('/dashboard/offers', 'DashboardController@offers');
 Route::post('/dashboard/profile', 'DashboardController@profile'); //advertiser profile page
+Route::put('/dashboard/profile', 'BusinessProfileController@resetPassword');
 
 Route::resource('/dashboard/offers', 'AdvertisementController');
 Route::resource('/dashboard/profile', 'BusinessProfileController');
 Route::resource('/dashboard/packeges', 'PackageController');
 Route::resource('/dashboard/messages', 'MessagesController'); //->middleware('verified')
-// Route::get('/dashboard/messages','MessagesController@send');
 
-Auth::routes(['verify' => true]);
+Auth::routes(['verify' => true]); // activate the mustVerify option
 
 
 Route::resource('/superuser/dashboard', 'SuperuserController')->middleware('auth');

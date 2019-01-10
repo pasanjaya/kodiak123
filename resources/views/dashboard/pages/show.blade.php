@@ -2,8 +2,7 @@
 
 @section('content')
             <div class="container">
-                
-                {{-- <a href="/offers/{{$ads->id}}/" class="btn btn-danger ml-3 mt-3 float-right">Delete</a> --}}
+                {{-- delete button --}}
                 {!!Form::open(['action' => ['AdvertisementController@destroy', $ads->id], 'method' => 'POST', 'class'=>'confirm_delete'])!!}
                     {{Form::hidden('_method', 'DELETE')}}
                     {{Form::submit('Delete', ['class'=> 'btn btn-danger ml-3 mt-3 float-right'])}}

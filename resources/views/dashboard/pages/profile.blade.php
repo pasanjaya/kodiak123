@@ -24,8 +24,8 @@
             <div class="card-body">
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
-                        
-                        {!! Form::open(['action' => ['BusinessProfileController@update', auth()->user()->id], 'method' => 'post', 'enctype' => 'multipart/form-data']) !!}
+                        {{-- password reset form --}}
+                        {!! Form::open(['action' => ['BusinessProfileController@resetPassword'], 'method' => 'post', 'enctype' => 'multipart/form-data']) !!}
                             
                             <div class="form-group row">
                                 {{Form::label('name', 'Name', ['class' => 'col-sm-2 col-form-label'])}}
@@ -49,16 +49,16 @@
                             </div>
 
                             <div class="form-group row">
-                                {{Form::label('new_pass', 'New Password', ['class' => 'col-sm-2 col-form-label'])}}
+                                {{Form::label('password', 'New Password', ['class' => 'col-sm-2 col-form-label'])}}
                                 <div class="col-sm-10">
-                                    {{Form::password('new_pass', ['class' => 'form-control', 'placeholder' => 'New Password'])}}
+                                    {{Form::password('password', ['class' => 'form-control', 'placeholder' => 'New Password'])}}
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                {{Form::label('confirm_pass', 'Confirm Password', ['class' => 'col-sm-2 col-form-label'])}}
+                                {{Form::label('password-confirm', 'Confirm Password', ['class' => 'col-sm-2 col-form-label'])}}
                                 <div class="col-sm-10">
-                                    {{Form::password('confirm_pass', ['class' => 'form-control', 'placeholder' => 'Confirm Password'])}}
+                                    {{Form::password('password-confirm', ['class' => 'form-control', 'placeholder' => 'Confirm Password'])}}
                                 </div>
                             </div>
 
@@ -68,7 +68,7 @@
                         {!! Form::close() !!}
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-
+                        {{-- bussiness profile update form --}}
                         {!! Form::open(['action' => ['BusinessProfileController@update', $profile->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
                             
                         <div class="row justify-content-center">
@@ -261,7 +261,7 @@
                                 <h5>Permanently Delete Account</h5>
                             </div>
                             <div class="card-body">
-
+                                {{-- business profile deletion form --}}
                                 {!! Form::open(['action' => ['BusinessProfileController@destroy', auth()->user()->id ], 'method' => 'POST', 'class'=>'confirm_delete']) !!}
                                     
                                     <p class="small text-danger">Please note that this process can not be un-done</p>

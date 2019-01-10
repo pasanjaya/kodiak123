@@ -8,6 +8,7 @@
             <div class="container mt-5">
                 <div class="d-flex justify-content-center">
                     <div class="card-deck" style="width:40rem">
+                        {{-- package 1 detail --}}
                         <div class="card" style="max-width:20rem">
                             <div class="card-header" style="background-color:#283B4D">
                                 <h3 class="text-white d-flex justify-content-center">Starter</h3>
@@ -26,6 +27,7 @@
                                 </div>
                             </div>
                         </div>
+                        {{-- package 2 detail --}}
                         <div class="card" style="max-width:20rem">
                             <div class="card-header" style="background-color:#283B4D">
                                 <h3 class="text-white d-flex justify-content-center">Standard</h3>
@@ -70,7 +72,6 @@
                     if(willDelete){
                         $(this).off("submit").submit();
                 }else{
-                    // swal("Your imaginary file is safe!");
                     swal('Cancelled', 'Delete Cancelled', 'info');
                 }
                 });
