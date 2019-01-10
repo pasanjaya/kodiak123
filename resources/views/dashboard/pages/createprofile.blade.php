@@ -8,6 +8,7 @@
         </div>
         <div class="card-body">
                 <div class="alert alert-warning">Please create a profile first</div>
+                {{-- business profile create form --}}
             {!! Form::open(['action' => 'BusinessProfileController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
                 <div class="row justify-content-center">
                     <div class="col-md-6 my-auto">
