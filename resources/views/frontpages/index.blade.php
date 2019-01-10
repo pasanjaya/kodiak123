@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="col-md-4 col-xl-3 p-b-30 m-lr-auto p-t-50">
-                    <!-- Block1 -->
+                    <!-- Block2 -->
                     <div class="block1 wrap-pic-w">
                         <img src="/storage/images/travel-vector.jpg" alt="IMG-BANNER"  style="width:275px;height:175px;">
 
@@ -123,6 +123,7 @@
         </div>
     </div>
 
+     <!-- advertisment show section -->
     <section class="bg0 p-t-23 p-b-140">
             <div class="container">
                 <div class="p-b-10">

@@ -1,3 +1,4 @@
+<!-- slide show-->
 <section class="section-slide">
     <div class="wrap-slick1">
         <div class="slick1">
