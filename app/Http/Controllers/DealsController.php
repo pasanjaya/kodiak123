@@ -22,6 +22,7 @@ class DealsController extends Controller
 
         // check for expiration and rejections anf get data
         $deals = Advertisement::where('reject_flag', '=', 0)
+                                ->where('verified_adv', '=', 1)
                                 // ->where('end_date', '>', $today)
                                 ->inRandomOrder()->take(16)->get();
 

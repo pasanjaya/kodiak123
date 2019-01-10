@@ -15,6 +15,7 @@
                     <div class="card-body">
                     <h5 class="card-title h4">{{$ads->start_date}} to {{$ads->end_date}}</h5>
                     <p class="card-text">{!!$ads->description!!}</p>
+                    <p>{{ $presentage }}%</p>
                     </div>
                     <div class="card-footer bg-light border-default">tags: {{$ads->tags}}</div>
                 </div>
