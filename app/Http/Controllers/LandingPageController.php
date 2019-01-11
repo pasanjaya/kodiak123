@@ -9,9 +9,12 @@ use Carbon\Carbon;
 class LandingPageController extends Controller
 {
     public function index(){
+        //get data for advertiment from db and pass them to blade
+
         $deals = Advertisement::where('reject_flag', '=', 0)
                                 ->where('verified_adv', '=', 1)
                                 ->orderBy('updated_at', 'desc')->take(12)->get();
+
         $today = Carbon::now()->toDateString();
         return view('frontpages.index')->with('deals', $deals)->with('today', $today);
     }
@@ -21,6 +24,7 @@ class LandingPageController extends Controller
     }
 
     public function details(){
+        //show a details about a advertisment
         return view('frontpages.details');
     }
     

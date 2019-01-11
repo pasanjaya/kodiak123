@@ -39,8 +39,10 @@
 							<div class="slick3 gallery-lb">
 								<div class="item-slick3" data-thumb="/storage/advertisement_images/{{$deal->image_name}}">
 									<div class="wrap-pic-w pos-relative">
+										<!-- show Product image-->
 										<img src="/storage/advertisement_images/{{$deal->image_name}}" alt="IMG-PRODUCT">
 
+										<!-- expand Product image -->
 										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="/storage/advertisement_images/{{$deal->image_name}}">
 											<i class="fa fa-expand"></i>
 										</a>
@@ -52,6 +54,7 @@
 					</div>
 				</div>
 					
+				<!-- show Product details-->
 				<div class="col-md-6 col-lg-5 p-b-30">
 					<div class="p-r-50 p-t-5 p-lr-0-lg">
 							
@@ -72,7 +75,7 @@
 						</p>
 	
 
-						<!--  -->
+						<!-- label for outofdated advertisment -->
 						<div class="flex-w flex-m p-l-100 p-t-40 respon7">
 								<span class="mtext-106 cl2">
 										@if($today > $deal->end_date)

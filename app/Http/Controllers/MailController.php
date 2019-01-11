@@ -6,13 +6,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMail;
 use Illuminate\Support\Facades\Input;
+use DB;
 
 
 class MailController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        return view('superuser/pages/frontmail');
+        $data =DB::table('users')->select('email as email')->get();
+        return view('superuser/pages/frontmail')-> with('mail', $data);
     }
     
     public function sends(Request $request)

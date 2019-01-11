@@ -20,6 +20,7 @@
     <div class="container">
         <div class="flex-w flex-tr">
             <div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
+                <!-- email form-->
                 <form>
                     <h4 class="mtext-105 cl2 txt-center p-b-30">
                         Send Us A Message
@@ -40,23 +41,9 @@
                 </form>
             </div>
 
+
+            <!-- contact details -->
             <div class="size-210 bor10 flex-w flex-col-m p-lr-93 p-tb-30 p-lr-15-lg w-full-md">
-                <!-- <div class="flex-w w-full p-b-42">
-                    <span class="fs-18 cl5 txt-center size-211">
-                        <span class="lnr lnr-map-marker"></span>
-                    </span>
-
-                    <div class="size-212 p-t-2">
-                        <span class="mtext-110 cl2">
-                            Address
-                        </span>
-
-                        <p class="stext-115 cl6 size-213 p-t-18">
-                            Coza Store Center 8th floor, 379 Hudson St, New York, NY 10018 US
-                        </p>
-                    </div>
-                </div> -->
-
                 <div class="flex-w w-full p-b-42">
                     <span class="fs-18 cl5 txt-center size-211">
                         <span class="lnr lnr-phone-handset"></span>
