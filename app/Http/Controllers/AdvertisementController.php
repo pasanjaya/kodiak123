@@ -141,10 +141,19 @@ class AdvertisementController extends Controller
          $user_id = auth()->user()->id;
          $user = User::find($user_id);
 
+        //  get total count
+         $userAds = Advertisement::where('user_id', '=', $user_id);
+        
          // get correct ad
          $ads = Advertisement::find($id);
+        
+        // calculate the presentage
+        $presentage = (intval($ads->view_count)/intval($userAds->sum('view_count')))*100;
+        
 
-         return view('/dashboard.pages.show')->with('ads', $ads)->with('profile', $user->profile);
+         return view('/dashboard.pages.show')->with('ads', $ads)
+                                ->with('profile', $user->profile)
+                                ->with('presentage', $presentage);
     }
 
     /**
